@@ -51,8 +51,6 @@ This website is designed to present:
 
 ### 📬 Contact
 
-Want to connect? Feel free to reach out:
-
 * 📧 Email: [wesongasydney2@gmail.com](mailto:wesongasydney2@gmail.com)
 * 🔗 LinkedIn: [Sydney Wesonga](https://www.linkedin.com/in/sydney-wesonga-4102992a1)
 * 🐙 GitHub: [Wales254](https://github.com/Wales254)
