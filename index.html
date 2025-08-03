@@ -6,8 +6,51 @@
   <title>Sydney Wesonga | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111;
+      --card: #f9f9f9;
+    }
+
+    body:has(#theme-toggle:checked) {
+      --bg: #121212;
+      --text: #f5f5f5;
+      --card: #1e1e1e;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+    }
+
+    .card {
+      background: var(--card);
+      color: var(--text);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .theme-switch {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #eee;
+      color: #333;
+      border-radius: 20px;
+      cursor: pointer;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+    }
+  </style>
 </head>
 <body>
+  
+
   <nav class="navbar">
     <ul>
       <li><a href="#about">About</a></li>
@@ -17,72 +60,59 @@
     </ul>
   </nav>
 
-  <header class="hero">
-  <h1>Hi, I'm <span class="highlight">Sydney Wesonga</span></h1>
-  <h2 id="rotatingTitle" class="rotating-title"></h2>
-<h2><span class="typing"></span></h2>
+ <header class="hero">
+  <div class="hero-card">
+    <h1>Hi, I'm <span class="highlight">Sydney Wesonga</span></h1>
+    <h2 id="rotatingTitle" class="rotating-title"></h2>
+    <h2><span class="typing"></span></h2>
 
-  <button id="toggleTheme">🌓 Toggle Theme</button>
+    <p class="hero-intro">
+      A passionate full stack developer who loves turning real-world problems into elegant digital solutions.
+    </p>
+
+    <div class="hero-actions">
+      <a href="cv.pdf" download class="btn">📄 Download CV</a>
+      <a href="#contact" class="btn secondary">💬 Let's Connect</a>
+    </div>
+  </div>
 </header>
 
 
+<input type="checkbox" id="theme-toggle" hidden />
+<label for="theme-toggle" class="theme-switch">🌓 Toggle Theme</label>
+
 
   <section id="about" class="fade-in">
-    <h2><i class="fas fa-user"></i> About Me</h2>
-    <div class="about-container">
-      <div class="about-image">
-        <img src="profile.jpg" alt="Sydney Wesonga" class="profile-pic" />
-      </div>
-      <div class="about-text">
-        <p>I’m Sydney Wesonga, a passionate software developer with a background in Applied Computing from KCA University. I turn ideas into digital solutions that are both effective and elegant.</p>
-        <p>From intuitive user interfaces to robust backend systems, I enjoy crafting every part of the development process. I thrive on solving real-world problems with code, always aiming to learn and innovate.</p>
-        <blockquote class="motto">“Building solutions that matter-one line of code at a time.”</blockquote>
-      </div>
+  <h2><i class="fas fa-user"></i> About Me</h2>
+  <div class="about-container">
+    <div class="about-image">
+      <img src="profile.jpg" alt="Sydney Wesonga" class="profile-pic" />
     </div>
-  </section>
-
-  <section id="interests" class="fade-in">
-  <h2><i class="fas fa-lightbulb"></i> What I do</h2>
-  <div class="grid-container grid-3">
-    <div class="card">
-      <strong>Web Development</strong>
-      <p>Building websites & apps</p>
-    </div>
-    <div class="card">
-      <strong>Tech Innovations</strong>
-      <p>Emerging tools & trends</p>
-    </div>
-    <div class="card">
-      <strong>Cybersecurity</strong>
-      <p>Protecting digital systems</p>
-    </div>
-    <div class="card">
-      <strong>UI/UX Design</strong>
-      <p>User-first interface design</p>
-    </div>
-    <div class="card">
-      <strong>Backend Engineering</strong>
-      <p>APIs and data logic</p>
-    </div>
-    <div class="card">
-      <strong>DevOps</strong>
-      <p>CI/CD & deployments</p>
-    </div>
-    <div class="card">
-      <strong>Cloud Computing</strong>
-      <p>Scalable virtual platforms</p>
-    </div>
-    <div class="card">
-      <strong>Mobile Development</strong>
-      <p>Apps for Android & iOS</p>
-    </div>
-    <div class="card">
-      <strong>Database Management</strong>
-      <p>Organizing structured data</p>
+    <div class="about-text">
+      <p>Hi, I’m <strong>Sydney Wesonga</strong>, a passionate <strong>full stack developer</strong> and <strong>Applied Computing graduate</strong> from <strong>KCA University</strong>.</p>
+      <p>I specialize in building web applications that are <strong>functional</strong>, <strong>efficient</strong>, and <strong>user-friendly</strong>. I work with both frontend technologies like <strong>HTML, CSS, JavaScript</strong> and backend tools like <strong>PHP, Python, and MySQL</strong>.</p>
+      <p>I love turning complex challenges into simple, intuitive digital solutions. Whether it’s designing sleek user interfaces or developing secure backend systems, I thrive on solving problems through code.</p>
+      <p>I believe in <strong>clean code</strong>, <strong>continuous learning</strong>, and building technology that has a real-world impact. My motto is:</p>
+      <blockquote class="motto">“Building solutions that matter - one line of code at a time.”</blockquote>
     </div>
   </div>
 </section>
 
+
+  <section id="interests" class="fade-in">
+    <h2><i class="fas fa-lightbulb"></i> What I do</h2>
+    <div class="grid-container grid-3">
+      <div class="card"><strong>Web Development</strong><p>Building websites & apps</p></div>
+      <div class="card"><strong>Tech Innovations</strong><p>Emerging tools & trends</p></div>
+      <div class="card"><strong>Cybersecurity</strong><p>Protecting digital systems</p></div>
+      <div class="card"><strong>UI/UX Design</strong><p>User-first interface design</p></div>
+      <div class="card"><strong>Backend Engineering</strong><p>APIs and data logic</p></div>
+      <div class="card"><strong>DevOps</strong><p>CI/CD & deployments</p></div>
+      <div class="card"><strong>Cloud Computing</strong><p>Scalable virtual platforms</p></div>
+      <div class="card"><strong>Mobile Development</strong><p>Apps for Android & iOS</p></div>
+      <div class="card"><strong>Database Management</strong><p>Organizing structured data</p></div>
+    </div>
+  </section>
 
   <section id="languages" class="fade-in">
     <h2><i class="fas fa-code"></i> Programming Languages</h2>
@@ -125,86 +155,38 @@
     </div>
   </section>
 
-  <section id="interests" class="fade-in">
-  <h2><i class="fas fa-lightbulb"></i> Interests</h2>
-  <div class="grid-container grid-3">
-    <div class="card">
-      <strong>Web Development</strong>
-      <p>Building interactive websites</p>
+  <section id="projects" class="fade-in">
+    <h2><i class="fas fa-laptop-code"></i> Projects</h2>
+    <div class="grid-container grid-2">
+      <div class="card">
+        <h3>Simple Survey Client</h3>
+        <p>React-based frontend for surveys.</p>
+        <a href="https://github.com/Wales254/simple-survey-client" target="_blank">View Project</a>
+      </div>
+      <div class="card">
+        <h3>Simple Survey API</h3>
+        <p>PHP & MySQL RESTful API backend.</p>
+        <a href="https://github.com/Wales254/simple-survey-api" target="_blank">View Project</a>
+      </div>
     </div>
-    <div class="card">
-      <strong>Tech Innovations</strong>
-      <p>Exploring new tech trends</p>
-    </div>
-    <div class="card">
-      <strong>Cybersecurity</strong>
-      <p>Securing digital environments</p>
-    </div>
-    <div class="card">
-      <strong>UI/UX Design</strong>
-      <p>Designing user-centered interfaces</p>
-    </div>
-    <div class="card">
-      <strong>API Development</strong>
-      <p>Creating data-driven services</p>
-    </div>
-    <div class="card">
-      <strong>Database Design</strong>
-      <p>Structuring and managing data</p>
-    </div>
-    <div class="card">
-      <strong>Cloud Computing</strong>
-      <p>Scalable online infrastructures</p>
-    </div>
-    <div class="card">
-      <strong>DevOps & CI/CD</strong>
-      <p>Automated development pipelines</p>
-    </div>
-    <div class="card">
-      <strong>Mobile App Development</strong>
-      <p>Building responsive mobile apps</p>
-    </div>
-    <div class="card">
-      <strong>Agile & Scrum</strong>
-      <p>Flexible team project workflows</p>
-    </div>
-  </div>
-</section>
-
-
-<section id="projects" class="fade-in">
-  <h2><i class="fas fa-laptop-code"></i> Projects</h2>
-  <div class="grid-container grid-2">
-    <div class="card">
-      <h3>Simple Survey Client</h3>
-      <p>React-based frontend for surveys.</p>
-      <a href="https://github.com/Wales254/simple-survey-client" target="_blank">View Project</a>
-    </div>
-    <div class="card">
-      <h3>Simple Survey API</h3>
-      <p>PHP & MySQL RESTful API backend.</p>
-      <a href="https://github.com/Wales254/simple-survey-api" target="_blank">View Project</a>
-    </div>
-    <!-- Add more projects here -->
-  </div>
-</section>
-
+  </section>
 
   <section id="contact" class="fade-in">
     <h2><i class="fas fa-envelope"></i> Contact Me</h2>
-    <form id="contact-form">
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" name="name" required />
+    <div class="card contact-card">
+      <form action="https://formspree.io/f/xpwljarv" method="POST">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required />
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
 
-      <button type="submit">Send</button>
-    </form>
-    <p id="form-status"></p>
+        <button type="submit">Send</button>
+      </form>
+    </div>
   </section>
 
   <footer>
@@ -212,44 +194,11 @@
       <p>Connect with me:</p>
       <a href="https://github.com/Wales254" target="_blank"><i class="fab fa-github fa-2x"></i></a>
       <a href="https://www.linkedin.com/in/sydney-wesonga-4102992a1" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+      <a href="https://wa.me/254114610579" target="_blank" title="Chat with me on WhatsApp">
+        <i class="fab fa-whatsapp fa-2x"></i>
+      </a>
     </div>
     <p>&copy; 2025 Sydney Wesonga. All rights reserved.</p>
   </footer>
-
-  <button id="scrollToTop" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #007bff; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 20px; cursor: pointer; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">⬆️</button>
-
-  <script>
-    const form = document.getElementById("contact-form");
-    const status = document.getElementById("form-status");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-
-      try {
-        const response = await fetch("https://formspree.io/f/xpwljarv", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-          status.textContent = "✅ Thank you! Your message has been sent.";
-          status.style.color = "green";
-          form.reset();
-        } else {
-          throw new Error("Submission failed.");
-        }
-      } catch (error) {
-        status.textContent = "❌ Oops! Please try again later.";
-        status.style.color = "red";
-      }
-    });
-  </script>
-  <script src="main.js"></script>
 </body>
 </html>
