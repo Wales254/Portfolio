@@ -1,4 +1,4 @@
-# Portfolio
+hi# Portfolio
 A showcase of my skills and projects as a Full Stack Developer. This portfolio highlights my expertise in front-end and back-end development, UI/UX design, and modern web technologies through real-world, responsive, and interactive applications.
 
 ## 🧑‍💻 Sydney Wesonga's Portfolio
@@ -55,4 +55,6 @@ This website is designed to present:
 * 🔗 LinkedIn: [Sydney Wesonga](https://www.linkedin.com/in/sydney-wesonga-4102992a1)
 * 🐙 GitHub: [Wales254](https://github.com/Wales254)
 
+
+live at:https://wales254.github.io/Portfolio/
 
