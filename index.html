@@ -6,51 +6,10 @@
   <title>Sydney Wesonga | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #111;
-      --card: #f9f9f9;
-    }
-
-    body:has(#theme-toggle:checked) {
-      --bg: #121212;
-      --text: #f5f5f5;
-      --card: #1e1e1e;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-    }
-
-    .card {
-      background: var(--card);
-      color: var(--text);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .theme-switch {
-      display: inline-block;
-      padding: 8px 12px;
-      background: #eee;
-      color: #333;
-      border-radius: 20px;
-      cursor: pointer;
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 999;
-    }
-  </style>
 </head>
 <body>
-  
 
+  <!-- Navbar -->
   <nav class="navbar">
     <ul>
       <li><a href="#about">About</a></li>
@@ -60,102 +19,70 @@
     </ul>
   </nav>
 
- <header class="hero">
-  <div class="hero-card">
-    <h1>Hi, I'm <span class="highlight">Sydney Wesonga</span></h1>
-    <h2 id="rotatingTitle" class="rotating-title"></h2>
-    <h2><span class="typing"></span></h2>
-
-    <p class="hero-intro">
-      A passionate full stack developer who loves turning real-world problems into elegant digital solutions.
-    </p>
-
-    <div class="hero-actions">
-      <a href="cv.pdf" download class="btn">📄 Download CV</a>
-      <a href="#contact" class="btn secondary">💬 Let's Connect</a>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-card">
+      <h1>Hi, I'm <span class="highlight">Sydney Wesonga</span></h1>
+      <h2 id="rotatingTitle" class="rotating-title">Full Stack Developer</h2>
+      <p class="hero-intro">
+        Turning real-world problems into elegant digital solutions.
+      </p>
+      <div class="hero-actions">
+        <a href="cv.pdf" download class="btn">📄 Download CV</a>
+        <a href="#contact" class="btn secondary">💬 Let's Connect</a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
+  <!-- Theme Toggle -->
+  <input type="checkbox" id="theme-toggle" hidden />
+  <label for="theme-toggle" class="theme-switch">🌓 Toggle Theme</label>
 
-<input type="checkbox" id="theme-toggle" hidden />
-<label for="theme-toggle" class="theme-switch">🌓 Toggle Theme</label>
-
-
-  <section id="about" class="fade-in">
-  <h2><i class="fas fa-user"></i> About Me</h2>
-  <div class="about-container">
-    <div class="about-image">
-      <img src="profile.jpg" alt="Sydney Wesonga" class="profile-pic" />
+  <!-- About Section -->
+  <section id="about" class="fade-in section-about">
+    <h2><i class="fas fa-user"></i> About Me</h2>
+    <div class="about-container">
+      <div class="about-image">
+        <img src="profile.jpg" alt="Sydney Wesonga" class="profile-pic" />
+      </div>
+      <div class="about-text">
+        <p>Hi, I’m <strong>Sydney Wesonga</strong>, a passionate <strong>full stack developer</strong> and <strong>Applied Computing graduate</strong> from <strong>KCA University</strong>.</p>
+        <p>I specialize in building web applications that are <strong>functional</strong>, <strong>efficient</strong>, and <strong>user-friendly</strong>.</p>
+        <blockquote class="motto">“Building solutions that matter - one line of code at a time.”</blockquote>
+      </div>
     </div>
-    <div class="about-text">
-      <p>Hi, I’m <strong>Sydney Wesonga</strong>, a passionate <strong>full stack developer</strong> and <strong>Applied Computing graduate</strong> from <strong>KCA University</strong>.</p>
-      <p>I specialize in building web applications that are <strong>functional</strong>, <strong>efficient</strong>, and <strong>user-friendly</strong>. I work with both frontend technologies like <strong>HTML, CSS, JavaScript</strong> and backend tools like <strong>PHP, Python, and MySQL</strong>.</p>
-      <p>I love turning complex challenges into simple, intuitive digital solutions. Whether it’s designing sleek user interfaces or developing secure backend systems, I thrive on solving problems through code.</p>
-      <p>I believe in <strong>clean code</strong>, <strong>continuous learning</strong>, and building technology that has a real-world impact. My motto is:</p>
-      <blockquote class="motto">“Building solutions that matter - one line of code at a time.”</blockquote>
-    </div>
-  </div>
-</section>
+  </section>
 
-
-  <section id="interests" class="fade-in">
-    <h2><i class="fas fa-lightbulb"></i> What I do</h2>
+  <!-- Interests Section -->
+  <section id="interests" class="fade-in section-interests">
+    <h2><i class="fas fa-lightbulb"></i> What I Do</h2>
     <div class="grid-container grid-3">
       <div class="card"><strong>Web Development</strong><p>Building websites & apps</p></div>
-      <div class="card"><strong>Tech Innovations</strong><p>Emerging tools & trends</p></div>
-      <div class="card"><strong>Cybersecurity</strong><p>Protecting digital systems</p></div>
       <div class="card"><strong>UI/UX Design</strong><p>User-first interface design</p></div>
-      <div class="card"><strong>Backend Engineering</strong><p>APIs and data logic</p></div>
-      <div class="card"><strong>DevOps</strong><p>CI/CD & deployments</p></div>
+      <div class="card"><strong>Backend Engineering</strong><p>APIs & data logic</p></div>
       <div class="card"><strong>Cloud Computing</strong><p>Scalable virtual platforms</p></div>
-      <div class="card"><strong>Mobile Development</strong><p>Apps for Android & iOS</p></div>
-      <div class="card"><strong>Database Management</strong><p>Organizing structured data</p></div>
+      <div class="card"><strong>DevOps</strong><p>CI/CD & deployments</p></div>
+      <div class="card"><strong>Cybersecurity</strong><p>Protecting digital systems</p></div>
     </div>
   </section>
 
-  <section id="languages" class="fade-in">
-    <h2><i class="fas fa-code"></i> Programming Languages</h2>
-    <ul class="icon-list">
-      <li><i class="fab fa-html5"></i> HTML</li>
-      <li><i class="fab fa-css3-alt"></i> CSS</li>
-      <li><i class="fab fa-js-square"></i> JavaScript</li>
-      <li><i class="fab fa-python"></i> Python</li>
-      <li><i class="fab fa-java"></i> Java</li>
-      <li><i class="fas fa-code"></i> C#</li>
-    </ul>
-  </section>
-
-  <section id="testimonials" class="fade-in">
-    <h2><i class="fas fa-comments"></i> What People Say</h2>
+  <!-- Languages & Skills Section -->
+  <section id="languages" class="fade-in section-languages">
+    <h2><i class="fas fa-code"></i> Programming Languages & Skills</h2>
     <div class="grid-container grid-3">
-      <div class="card">
-        <p>“Sydney is a creative problem-solver with an eye for clean, functional design.”</p>
-        <p><strong>– Ezekiel Kuria</strong><br><em>University Lecturer</em></p>
-      </div>
-      <div class="card">
-        <p>“He’s a go-to teammate when you're stuck—always finds a smart way out.”</p>
-        <p><strong>– Brian Maema</strong><br><em>Colleague</em></p>
-      </div>
-      <div class="card">
-        <p>“A blend of technical brilliance and calm demeanor. A true professional.”</p>
-        <p><strong>– Arnold Makika</strong><br><em>Colleague</em></p>
-      </div>
+      <div class="card"><i class="fab fa-html5 fa-2x"></i><p>HTML</p></div>
+      <div class="card"><i class="fab fa-css3-alt fa-2x"></i><p>CSS</p></div>
+      <div class="card"><i class="fab fa-js-square fa-2x"></i><p>JavaScript</p></div>
+      <div class="card"><i class="fab fa-python fa-2x"></i><p>Python</p></div>
+      <div class="card"><i class="fab fa-java fa-2x"></i><p>Java</p></div>
+      <div class="card"><i class="fas fa-database fa-2x"></i><p>MySQL</p></div>
+      <div class="card"><i class="fab fa-php fa-2x"></i><p>PHP</p></div>
+      <div class="card"><i class="fas fa-server fa-2x"></i><p>Node.js</p></div>
     </div>
   </section>
 
-  <section id="education" class="fade-in">
-    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-    <div class="grid-container">
-      <div class="card">
-        <p>Bachelor of Science in Applied Computing</p>
-        <p><strong>KCA University</strong></p>
-        <a href="cv.pdf" download class="btn">📄 Download My CV</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="fade-in">
+  <!-- Projects Section -->
+  <section id="projects" class="fade-in section-projects">
     <h2><i class="fas fa-laptop-code"></i> Projects</h2>
     <div class="grid-container grid-2">
       <div class="card">
@@ -171,10 +98,11 @@
     </div>
   </section>
 
-  <section id="contact" class="fade-in">
+  <!-- Contact Section -->
+  <section id="contact" class="fade-in section-contact">
     <h2><i class="fas fa-envelope"></i> Contact Me</h2>
     <div class="card contact-card">
-      <form action="https://formspree.io/f/xpwljarv" method="POST">
+      <form id="contact-form" action="https://formspree.io/f/xpwljarv" method="POST">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required />
 
@@ -189,16 +117,17 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <p>Connect with me:</p>
       <a href="https://github.com/Wales254" target="_blank"><i class="fab fa-github fa-2x"></i></a>
       <a href="https://www.linkedin.com/in/sydney-wesonga-4102992a1" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-      <a href="https://wa.me/254114610579" target="_blank" title="Chat with me on WhatsApp">
-        <i class="fab fa-whatsapp fa-2x"></i>
-      </a>
+      <a href="https://wa.me/254114610579" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
     </div>
     <p>&copy; 2025 Sydney Wesonga. All rights reserved.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
