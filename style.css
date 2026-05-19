@@ -1,5 +1,5 @@
 /* =========================
-   RESET + ROOT SYSTEM
+   RESET
 ========================= */
 * {
   margin: 0;
@@ -7,249 +7,136 @@
   box-sizing: border-box;
 }
 
+/* =========================
+   ROOT
+========================= */
 :root {
   --primary: #6366f1;
-  --secondary: #06b6d4;
-  --accent: #22c55e;
-
-  --dark: #0b1220;
+  --dark: #0f172a;
   --light: #f8fafc;
-
-  --glass: rgba(255, 255, 255, 0.08);
-  --glass-dark: rgba(15, 23, 42, 0.6);
-
-  --shadow: 0 20px 60px rgba(0,0,0,0.12);
 }
 
 /* =========================
-   BODY (WORLD CLASS BACKGROUND)
+   BODY
 ========================= */
 body {
   font-family: "Segoe UI", sans-serif;
-  color: #0f172a;
-
-  background: radial-gradient(circle at top, #e0f2fe, #f8fafc 40%, #ffffff);
-  overflow-x: hidden;
-  transition: all 0.4s ease;
-}
-
-/* glowing orbs */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 450px;
-  height: 450px;
-  border-radius: 50%;
-  filter: blur(140px);
-  z-index: -1;
-  animation: floatGlow 12s infinite alternate ease-in-out;
-}
-
-body::before {
-  background: #6366f1;
-  top: -120px;
-  left: -120px;
-  opacity: 0.25;
-}
-
-body::after {
-  background: #06b6d4;
-  bottom: -120px;
-  right: -120px;
-  opacity: 0.2;
-}
-
-@keyframes floatGlow {
-  from { transform: translateY(0px) scale(1); }
-  to { transform: translateY(60px) scale(1.15); }
+  background: var(--light);
+  color: var(--dark);
 }
 
 /* DARK MODE */
 body.dark {
+  background: #0f172a;
   color: #e2e8f0;
-  background: radial-gradient(circle at top, #0b1220, #0f172a, #020617);
 }
 
 /* =========================
-   NAVBAR (GLASS MORPHISM)
+   NAVBAR
 ========================= */
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 1000;
-  padding: 14px 20px;
-  backdrop-filter: blur(25px);
-  background: var(--glass);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-body.dark .navbar {
-  background: var(--glass-dark);
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  padding: 15px;
 }
 
 .navbar ul {
   display: flex;
   justify-content: center;
-  gap: 28px;
+  gap: 20px;
   list-style: none;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 500;
 }
 
 /* =========================
    HERO
 ========================= */
 .hero {
-  padding: 110px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
 .hero-card {
-  max-width: 900px;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  color: white;
+  padding: 60px;
+  border-radius: 20px;
+  max-width: 800px;
   margin: auto;
-  padding: 70px;
-  border-radius: 28px;
-  background: var(--glass);
-  backdrop-filter: blur(30px);
-  box-shadow: var(--shadow);
 }
 
 /* =========================
-   SECTIONS (IMPORTANT FIX: CENTER CONTENT)
+   SECTIONS
 ========================= */
 section {
-  max-width: 1100px;
-  margin: 70px auto;
-  padding: 60px;
-  border-radius: 24px;
-  backdrop-filter: blur(20px);
-  box-shadow: var(--shadow);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* 🔥 THIS FIXES CENTER ALIGNMENT */
-  text-align: center;
-
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-
-section.show {
-  opacity: 1;
-  transform: translateY(0);
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 40px;
 }
 
 /* =========================
-   DIFFERENT SECTION COLORS
+   GRID
 ========================= */
-#about { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
-#skills { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
-#projects { background: linear-gradient(135deg, #10b981, #34d399); }
-#contact { background: linear-gradient(135deg, #f59e0b, #f97316); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
 
 /* =========================
    CARDS
 ========================= */
 .card {
-  padding: 22px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(15px);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.02);
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
 }
 
 /* =========================
-   PROFILE IMAGE
+   PROFILE PIC
 ========================= */
 .profile-pic {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid white;
+  display: block;
   margin: 20px auto;
 }
 
 /* =========================
-   FORM
-========================= */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-  max-width: 400px;
-}
-
-input, textarea {
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-}
-
-/* =========================
-   SOCIAL ICONS (FIXED + CENTERED)
+   SOCIAL DOCK (FIXED CENTER)
 ========================= */
 .social-dock {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 25px;
   margin-top: 30px;
-  width: 100%;
 }
 
+/* ICON */
 .social-icon {
-  width: 55px;
-  height: 55px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 14px;
+  border-radius: 12px;
   font-size: 20px;
-
   text-decoration: none;
-
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255,255,255,0.25);
-
+  background: rgba(0,0,0,0.05);
   transition: 0.3s;
-  color: #0f172a;
 }
 
+/* HOVER */
 .social-icon:hover {
-  transform: translateY(-6px) scale(1.1);
+  transform: translateY(-5px);
 }
 
-/* brand hover */
+/* COLORS */
 .github:hover { background: #24292e; color: white; }
 .linkedin:hover { background: #0a66c2; color: white; }
 .whatsapp:hover { background: #25d366; color: white; }
-
-/* DARK MODE */
-body.dark .social-icon {
-  background: rgba(15,23,42,0.5);
-  color: white;
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-  text-align: center;
-  padding: 40px;
-  color: #cbd5e1;
-}
