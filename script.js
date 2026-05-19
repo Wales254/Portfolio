@@ -4,20 +4,19 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================
-  // DARK / LIGHT MODE (FIXED + SAFE)
+  // THEME TOGGLE (FULLY SYNCED WITH HTML + CSS)
   // ==========================
   const themeToggle = document.getElementById("theme-toggle");
 
-  // FIX: Apply saved theme immediately (even before toggle interaction)
+  // Load saved theme instantly
   const savedTheme = localStorage.getItem("theme");
 
   if (savedTheme === "dark") {
     document.body.classList.add("dark");
   }
 
+  // Sync checkbox state
   if (themeToggle) {
-
-    // FIX: Sync checkbox state with saved theme
     themeToggle.checked = document.body.classList.contains("dark");
 
     themeToggle.addEventListener("change", () => {
@@ -31,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================
-  // TYPING EFFECT
+  // TYPING EFFECT (HERO TITLE)
   // ==========================
   const titles = [
     "Full Stack Developer",
@@ -76,33 +75,37 @@ document.addEventListener("DOMContentLoaded", () => {
   typeEffect();
 
   // ==========================
-  // SMOOTH SCROLL
+  // SMOOTH SCROLL NAVIGATION
   // ==========================
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
+  document.querySelectorAll(".navbar a").forEach(link => {
     link.addEventListener("click", (e) => {
-      e.preventDefault();
+      const targetId = link.getAttribute("href");
 
-      const target = document.querySelector(link.getAttribute("href"));
+      if (targetId && targetId.startsWith("#")) {
+        e.preventDefault();
 
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
       }
     });
   });
 
   // ==========================
-  // FADE-IN ON SCROLL
+  // SECTION REVEAL ANIMATION
   // ==========================
   const sections = document.querySelectorAll("section");
 
   const revealSections = () => {
     const trigger = window.innerHeight * 0.85;
 
-    sections.forEach(sec => {
-      const top = sec.getBoundingClientRect().top;
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
 
       if (top < trigger) {
-        sec.classList.add("show");
+        section.classList.add("show");
       }
     });
   };
@@ -111,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
   revealSections();
 
   // ==========================
-  // NAVBAR SCROLL EFFECT
+  // NAVBAR SCROLL EFFECT (GLASS ENHANCEMENT SUPPORT)
   // ==========================
   const navbar = document.querySelector(".navbar");
 
@@ -122,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================
-  // ACTIVE NAV LINK
+  // ACTIVE NAV LINK HIGHLIGHT
   // ==========================
   const navLinks = document.querySelectorAll(".navbar a");
 
@@ -130,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentSection = "";
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 200;
+      const sectionTop = section.offsetTop - 150;
 
       if (window.scrollY >= sectionTop) {
         currentSection = section.id;
