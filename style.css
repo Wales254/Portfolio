@@ -28,9 +28,7 @@ body {
   font-family: "Segoe UI", sans-serif;
   color: #0f172a;
 
-  background:
-    radial-gradient(circle at top, #e0f2fe, #f8fafc 40%, #ffffff);
-
+  background: radial-gradient(circle at top, #e0f2fe, #f8fafc 40%, #ffffff);
   overflow-x: hidden;
   transition: all 0.4s ease;
 }
@@ -70,18 +68,7 @@ body::after {
 /* DARK MODE */
 body.dark {
   color: #e2e8f0;
-  background:
-    radial-gradient(circle at top, #0b1220, #0f172a, #020617);
-}
-
-body.dark::before {
-  background: #3b82f6;
-  opacity: 0.2;
-}
-
-body.dark::after {
-  background: #14b8a6;
-  opacity: 0.15;
+  background: radial-gradient(circle at top, #0b1220, #0f172a, #020617);
 }
 
 /* =========================
@@ -91,10 +78,8 @@ body.dark::after {
   position: sticky;
   top: 0;
   z-index: 1000;
-
   padding: 14px 20px;
   backdrop-filter: blur(25px);
-
   background: var(--glass);
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
@@ -114,32 +99,10 @@ body.dark .navbar {
   text-decoration: none;
   color: inherit;
   font-weight: 500;
-  position: relative;
-  transition: 0.3s;
-}
-
-.navbar a:hover {
-  color: var(--primary);
-}
-
-/* underline animation */
-.navbar a::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  transition: 0.3s;
-}
-
-.navbar a:hover::after {
-  width: 100%;
 }
 
 /* =========================
-   HERO (STARTUP STYLE)
+   HERO
 ========================= */
 .hero {
   padding: 110px 20px;
@@ -150,70 +113,27 @@ body.dark .navbar {
   max-width: 900px;
   margin: auto;
   padding: 70px;
-
   border-radius: 28px;
-
   background: var(--glass);
   backdrop-filter: blur(30px);
-
-  border: 1px solid rgba(255,255,255,0.2);
-
   box-shadow: var(--shadow);
 }
 
-body.dark .hero-card {
-  background: var(--glass-dark);
-}
-
-.highlight {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* buttons */
-.hero-actions .btn {
-  display: inline-block;
-  padding: 12px 18px;
-  margin: 8px;
-
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-
-  background: white;
-  color: black;
-
-  transition: 0.3s;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.hero-actions .btn:hover {
-  transform: translateY(-4px);
-}
-
-.btn.secondary {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-}
-
 /* =========================
-   SECTIONS (NOW EACH HAS UNIQUE IDENTITY)
+   SECTIONS (IMPORTANT FIX: CENTER CONTENT)
 ========================= */
-
-/* base section style */
 section {
   max-width: 1100px;
   margin: 70px auto;
   padding: 60px;
-
   border-radius: 24px;
   backdrop-filter: blur(20px);
-
-  border: 1px solid rgba(255,255,255,0.15);
-
   box-shadow: var(--shadow);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 🔥 THIS FIXES CENTER ALIGNMENT */
+  text-align: center;
 
   opacity: 0;
   transform: translateY(30px);
@@ -225,55 +145,22 @@ section.show {
   transform: translateY(0);
 }
 
-/* ABOUT (BLUE PREMIUM) */
-#about {
-  background: linear-gradient(135deg, #3b82f6, #60a5fa);
-}
-
-/* SKILLS (PURPLE TECH STYLE) */
-#skills {
-  background: linear-gradient(135deg, #7c3aed, #a78bfa);
-}
-
-/* PROJECTS (GREEN TECH STYLE) */
-#projects {
-  background: linear-gradient(135deg, #10b981, #34d399);
-}
-
-/* CONTACT (ORANGE MODERN STYLE) */
-#contact {
-  background: linear-gradient(135deg, #f59e0b, #f97316);
-}
-
-/* DARK MODE SECTION OVERRIDE */
-body.dark #about {
-  background: linear-gradient(135deg, #1e3a8a, #2563eb);
-}
-
-body.dark #skills {
-  background: linear-gradient(135deg, #4c1d95, #6d28d9);
-}
-
-body.dark #projects {
-  background: linear-gradient(135deg, #064e3b, #059669);
-}
-
-body.dark #contact {
-  background: linear-gradient(135deg, #7c2d12, #ea580c);
-}
+/* =========================
+   DIFFERENT SECTION COLORS
+========================= */
+#about { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+#skills { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+#projects { background: linear-gradient(135deg, #10b981, #34d399); }
+#contact { background: linear-gradient(135deg, #f59e0b, #f97316); }
 
 /* =========================
-   CARDS (GLASS PREMIUM)
+   CARDS
 ========================= */
 .card {
   padding: 22px;
   border-radius: 18px;
-
   background: rgba(255,255,255,0.25);
   backdrop-filter: blur(15px);
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-
   transition: 0.3s;
 }
 
@@ -281,29 +168,16 @@ body.dark #contact {
   transform: translateY(-10px) scale(1.02);
 }
 
-body.dark .card {
-  background: rgba(15, 23, 42, 0.5);
-  color: #e2e8f0;
-}
-
 /* =========================
-   PROFILE IMAGE (CLEAN PREMIUM)
+   PROFILE IMAGE
 ========================= */
 .profile-pic {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-
   border: 3px solid white;
-
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-
-  transition: 0.4s;
-}
-
-.profile-pic:hover {
-  transform: scale(1.08) rotate(2deg);
+  margin: 20px auto;
 }
 
 /* =========================
@@ -313,143 +187,61 @@ form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
+  max-width: 400px;
 }
 
 input, textarea {
   padding: 12px;
   border-radius: 10px;
   border: none;
-  outline: none;
 }
 
-input:focus, textarea:focus {
-  box-shadow: 0 0 0 3px rgba(255,255,255,0.4);
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 25px;
-  flex-wrap: wrap;
-}
-
-.social {
-  padding: 12px 18px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-.social:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-}
-
-/* Brand colors */
-.github {
-  background: #24292e;
-}
-
-.linkedin {
-  background: #0a66c2;
-}
-
-.whatsapp {
-  background: #25d366;
-}
 /* =========================
-   PREMIUM SOCIAL DOCK
-========================= */
-/* =========================
-   PREMIUM SOCIAL DOCK (CENTER FIXED)
+   SOCIAL ICONS (FIXED + CENTERED)
 ========================= */
 .social-dock {
   display: flex;
-  justify-content: center;   /* centers horizontally */
+  justify-content: center;
   align-items: center;
-  gap: 25px;                 /* space between icons */
+  gap: 25px;
   margin-top: 30px;
-  width: 100%;               /* ensures full centering context */
-}
+  width: 100%;
 }
 
-/* ICON BUTTON BASE */
 .social-icon {
-  width: 52px;
-  height: 52px;
+  width: 55px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
 
+  border-radius: 14px;
   font-size: 20px;
+
   text-decoration: none;
 
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255,255,255,0.15);
   backdrop-filter: blur(12px);
 
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255,255,255,0.25);
 
-  color: #0f172a;
-
-  transition: all 0.3s ease;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-  position: relative;
-  overflow: hidden;
-}
-
-/* HOVER ANIMATION */
-.social-icon:hover {
-  transform: translateY(-6px) scale(1.08);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-}
-
-/* ICON GLOW EFFECT */
-.social-icon::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0;
   transition: 0.3s;
-  border-radius: 14px;
+  color: #0f172a;
 }
 
-.social-icon:hover::before {
-  opacity: 1;
+.social-icon:hover {
+  transform: translateY(-6px) scale(1.1);
 }
 
-/* BRAND COLORS (GLOW EFFECTS) */
-.github:hover {
-  color: white;
-  background: #24292e;
-}
+/* brand hover */
+.github:hover { background: #24292e; color: white; }
+.linkedin:hover { background: #0a66c2; color: white; }
+.whatsapp:hover { background: #25d366; color: white; }
 
-.linkedin:hover {
-  color: white;
-  background: #0a66c2;
-}
-
-.whatsapp:hover {
-  color: white;
-  background: #25d366;
-}
-
-/* DARK MODE SUPPORT */
+/* DARK MODE */
 body.dark .social-icon {
-  background: rgba(15, 23, 42, 0.5);
-  color: #e2e8f0;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-body.dark .social-icon:hover {
+  background: rgba(15,23,42,0.5);
   color: white;
 }
 
