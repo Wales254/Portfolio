@@ -147,3 +147,35 @@ footer {
 .social-icon:hover {
   transform: translateY(-5px);
 }
+
+/* =========================
+   DARK MODE TEXT FIX (IMPORTANT)
+========================= */
+
+body.dark section {
+  color: #e2e8f0;
+}
+
+/* Fix headings inside sections */
+body.dark h2,
+body.dark h3,
+body.dark p {
+  color: #e2e8f0;
+}
+
+/* Improve card readability in dark mode */
+body.dark .card {
+  background: rgba(30, 41, 59, 0.85);
+  color: #e2e8f0;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Fix links inside cards */
+body.dark .card a {
+  color: #60a5fa;
+}
+
+/* Ensure section content doesn't blend with gradients */
+section {
+  color: inherit;
+}
