@@ -326,6 +326,45 @@ input:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(255,255,255,0.4);
 }
 
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.social {
+  padding: 12px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.social:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Brand colors */
+.github {
+  background: #24292e;
+}
+
+.linkedin {
+  background: #0a66c2;
+}
+
+.whatsapp {
+  background: #25d366;
+}
+
 /* =========================
    FOOTER
 ========================= */
