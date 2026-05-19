@@ -367,11 +367,17 @@ input:focus, textarea:focus {
 /* =========================
    PREMIUM SOCIAL DOCK
 ========================= */
+/* =========================
+   PREMIUM SOCIAL DOCK (CENTER FIXED)
+========================= */
 .social-dock {
   display: flex;
-  justify-content: center;
-  gap: 18px;
+  justify-content: center;   /* centers horizontally */
+  align-items: center;
+  gap: 25px;                 /* space between icons */
   margin-top: 30px;
+  width: 100%;               /* ensures full centering context */
+}
 }
 
 /* ICON BUTTON BASE */
