@@ -1,3 +1,6 @@
+/* =========================
+   RESET + ROOT VARIABLES
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -8,22 +11,40 @@
   --primary: #6366f1;
   --dark: #0f172a;
   --light: #f8fafc;
+  --card-light: #ffffff;
+  --card-dark: #1e293b;
 }
 
+/* =========================
+   BASE BODY
+========================= */
 body {
   font-family: "Segoe UI", sans-serif;
   background: var(--light);
   color: var(--dark);
+  transition: all 0.3s ease;
 }
 
-/* NAVBAR */
+body.dark {
+  background: var(--dark);
+  color: #e2e8f0;
+}
+
+/* =========================
+   NAVBAR (GLASS EFFECT)
+========================= */
 .navbar {
   position: sticky;
   top: 0;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   padding: 15px;
   text-align: center;
+  z-index: 1000;
+}
+
+body.dark .navbar {
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .navbar ul {
@@ -36,9 +57,16 @@ body {
 .navbar a {
   text-decoration: none;
   color: var(--dark);
+  font-weight: 500;
 }
 
-/* HERO */
+body.dark .navbar a {
+  color: #e2e8f0;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
 .hero {
   padding: 80px 20px;
   text-align: center;
@@ -51,20 +79,26 @@ body {
   border-radius: 20px;
   max-width: 800px;
   margin: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .highlight {
-  color: #fff;
+  color: white;
 }
 
-/* BUTTONS */
-.btn {
+.hero-actions .btn {
   padding: 10px 15px;
   background: white;
   color: black;
   border-radius: 10px;
   margin: 5px;
   display: inline-block;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.hero-actions .btn:hover {
+  transform: translateY(-3px);
 }
 
 .btn.secondary {
@@ -73,62 +107,56 @@ body {
   color: white;
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS (CARD STYLE)
+========================= */
 section {
   max-width: 1000px;
   margin: 60px auto;
   padding: 40px;
+  border-radius: 15px;
+  background: var(--card-light);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
 }
 
-/* GRID */
+body.dark section {
+  background: var(--card-dark);
+  color: #e2e8f0;
+}
+
+/* =========================
+   GRID SYSTEM
+========================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
-/* CARDS */
+/* =========================
+   CARDS
+========================= */
 .card {
   background: white;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
-/* CONTACT */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+body.dark .card {
+  background: #0f172a;
+  color: #e2e8f0;
 }
 
-input, textarea {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-button {
-  padding: 10px;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 8px;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  background: var(--dark);
-  color: white;
-}
-/* PROFILE IMAGE FIX */
+/* =========================
+   PROFILE IMAGE (FIXED)
+========================= */
 .profile-pic {
   width: 140px;
   height: 140px;
@@ -143,4 +171,74 @@ footer {
 
 .profile-pic:hover {
   transform: scale(1.05);
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+body.dark input,
+body.dark textarea {
+  background: #0f172a;
+  color: white;
+  border: 1px solid #334155;
+}
+
+button {
+  padding: 10px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: var(--dark);
+  color: white;
+}
+
+/* =========================
+   ANIMATION (SCROLL REVEAL SUPPORT)
+========================= */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+  .hero-card {
+    padding: 30px;
+  }
+
+  section {
+    margin: 30px 15px;
+    padding: 20px;
+  }
 }
