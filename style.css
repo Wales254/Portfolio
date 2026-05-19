@@ -364,6 +364,88 @@ input:focus, textarea:focus {
 .whatsapp {
   background: #25d366;
 }
+/* =========================
+   PREMIUM SOCIAL DOCK
+========================= */
+.social-dock {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+/* ICON BUTTON BASE */
+.social-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+
+  font-size: 20px;
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  color: #0f172a;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* HOVER ANIMATION */
+.social-icon:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* ICON GLOW EFFECT */
+.social-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 0.3s;
+  border-radius: 14px;
+}
+
+.social-icon:hover::before {
+  opacity: 1;
+}
+
+/* BRAND COLORS (GLOW EFFECTS) */
+.github:hover {
+  color: white;
+  background: #24292e;
+}
+
+.linkedin:hover {
+  color: white;
+  background: #0a66c2;
+}
+
+.whatsapp:hover {
+  color: white;
+  background: #25d366;
+}
+
+/* DARK MODE SUPPORT */
+body.dark .social-icon {
+  background: rgba(15, 23, 42, 0.5);
+  color: #e2e8f0;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+body.dark .social-icon:hover {
+  color: white;
+}
 
 /* =========================
    FOOTER
