@@ -4,7 +4,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================
-  // THEME TOGGLE (FULLY SYNCED WITH HTML + CSS)
+  // THEME TOGGLE (FULLY SYNCED)
   // ==========================
   const themeToggle = document.getElementById("theme-toggle");
 
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
   revealSections();
 
   // ==========================
-  // NAVBAR SCROLL EFFECT (GLASS ENHANCEMENT SUPPORT)
+  // NAVBAR SCROLL EFFECT
   // ==========================
   const navbar = document.querySelector(".navbar");
 
@@ -148,5 +148,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // ==========================
+  // CONTACT FORM SUCCESS MESSAGE (FORMSPREE)
+  // ==========================
+  const contactForm = document.getElementById("contact-form");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function () {
+      setTimeout(() => {
+        alert("✅ Message sent successfully! I will get back to you soon.");
+      }, 500);
+    });
+  }
 
 });
