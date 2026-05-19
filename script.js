@@ -8,14 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================
   const themeToggle = document.getElementById("theme-toggle");
 
-  // Load saved theme instantly
   const savedTheme = localStorage.getItem("theme");
 
   if (savedTheme === "dark") {
     document.body.classList.add("dark");
   }
 
-  // Sync checkbox state
   if (themeToggle) {
     themeToggle.checked = document.body.classList.contains("dark");
 
@@ -30,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================
-  // TYPING EFFECT (HERO TITLE)
+  // TYPING EFFECT
   // ==========================
   const titles = [
     "Full Stack Developer",
@@ -75,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
   typeEffect();
 
   // ==========================
-  // SMOOTH SCROLL NAVIGATION
+  // SMOOTH SCROLL
   // ==========================
   document.querySelectorAll(".navbar a").forEach(link => {
     link.addEventListener("click", (e) => {
@@ -94,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================
-  // SECTION REVEAL ANIMATION
+  // SECTION REVEAL
   // ==========================
   const sections = document.querySelectorAll("section");
 
@@ -114,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
   revealSections();
 
   // ==========================
-  // NAVBAR SCROLL EFFECT
+  // NAVBAR EFFECT
   // ==========================
   const navbar = document.querySelector(".navbar");
 
@@ -125,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================
-  // ACTIVE NAV LINK HIGHLIGHT
+  // ACTIVE LINK
   // ==========================
   const navLinks = document.querySelectorAll(".navbar a");
 
@@ -150,16 +148,61 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================
-  // CONTACT FORM SUCCESS MESSAGE (FORMSPREE)
+  // CONTACT FORM (NO REDIRECT + SUCCESS POPUP)
   // ==========================
   const contactForm = document.getElementById("contact-form");
 
   if (contactForm) {
-    contactForm.addEventListener("submit", function () {
-      setTimeout(() => {
-        alert("✅ Message sent successfully! I will get back to you soon.");
-      }, 500);
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault(); // stop Formspree redirect
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (response.ok) {
+          showSuccessMessage();
+          contactForm.reset();
+        } else {
+          alert("❌ Something went wrong. Please try again.");
+        }
+
+      } catch (error) {
+        alert("❌ Network error. Please check your connection.");
+      }
     });
+  }
+
+  // ==========================
+  // SUCCESS MESSAGE UI
+  // ==========================
+  function showSuccessMessage() {
+    const msg = document.createElement("div");
+
+    msg.textContent = "✅ Message sent successfully!";
+    msg.style.position = "fixed";
+    msg.style.bottom = "20px";
+    msg.style.right = "20px";
+    msg.style.background = "#22c55e";
+    msg.style.color = "white";
+    msg.style.padding = "15px 20px";
+    msg.style.borderRadius = "10px";
+    msg.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
+    msg.style.zIndex = "9999";
+    msg.style.fontWeight = "bold";
+
+    document.body.appendChild(msg);
+
+    setTimeout(() => {
+      msg.remove();
+    }, 3000);
   }
 
 });
