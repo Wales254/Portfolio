@@ -10,30 +10,48 @@
 :root {
   --primary: #6366f1;
   --secondary: #06b6d4;
+
   --dark: #0b1220;
   --light: #f8fafc;
+
   --glass: rgba(255, 255, 255, 0.08);
-  --glass-dark: rgba(15, 23, 42, 0.6);
+  --glass-dark: rgba(15, 23, 42, 0.65);
+
+  /* SECTION COLORS (LIGHT) */
+  --about: rgba(99, 102, 241, 0.10);
+  --skills: rgba(6, 182, 212, 0.10);
+  --projects: rgba(16, 185, 129, 0.10);
+  --contact: rgba(244, 114, 182, 0.10);
+
+  /* SECTION COLORS (DARK) */
+  --about-dark: rgba(99, 102, 241, 0.18);
+  --skills-dark: rgba(6, 182, 212, 0.18);
+  --projects-dark: rgba(16, 185, 129, 0.18);
+  --contact-dark: rgba(244, 114, 182, 0.18);
 }
 
 /* =========================
-   BASE BODY (ULTRA PREMIUM BACKGROUND)
+   BASE BODY (PREMIUM BACKGROUND)
 ========================= */
 body {
   font-family: "Segoe UI", sans-serif;
   color: #0f172a;
-  background: radial-gradient(circle at top, #e0f2fe, #f8fafc, #ffffff);
+
+  background:
+    radial-gradient(circle at top, #e0f2fe, #f8fafc),
+    radial-gradient(circle at bottom right, rgba(99,102,241,0.15), transparent);
+
   overflow-x: hidden;
   transition: all 0.4s ease;
 }
 
-/* animated glow orbs */
+/* floating glow orbs */
 body::before,
 body::after {
   content: "";
   position: fixed;
-  width: 400px;
-  height: 400px;
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
   filter: blur(120px);
   z-index: -1;
@@ -42,15 +60,15 @@ body::after {
 
 body::before {
   background: #6366f1;
-  top: -100px;
-  left: -100px;
+  top: -120px;
+  left: -120px;
   opacity: 0.3;
 }
 
 body::after {
   background: #06b6d4;
-  bottom: -100px;
-  right: -100px;
+  bottom: -120px;
+  right: -120px;
   opacity: 0.25;
 }
 
@@ -60,7 +78,7 @@ body::after {
 }
 
 /* =========================
-   DARK MODE (PREMIUM)
+   DARK MODE
 ========================= */
 body.dark {
   color: #e2e8f0;
@@ -78,7 +96,7 @@ body.dark::after {
 }
 
 /* =========================
-   NAVBAR (GLASS + FLOAT)
+   NAVBAR (GLASS)
 ========================= */
 .navbar {
   position: sticky;
@@ -86,7 +104,7 @@ body.dark::after {
   padding: 14px 20px;
   backdrop-filter: blur(20px);
   background: var(--glass);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
   z-index: 1000;
 }
 
@@ -124,7 +142,7 @@ body.dark .navbar {
 }
 
 /* =========================
-   HERO (STARTUP LANDING STYLE)
+   HERO SECTION
 ========================= */
 .hero {
   padding: 100px 20px;
@@ -138,7 +156,7 @@ body.dark .navbar {
   border-radius: 25px;
   background: var(--glass);
   backdrop-filter: blur(25px);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.18);
   box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 
@@ -146,6 +164,7 @@ body.dark .hero-card {
   background: var(--glass-dark);
 }
 
+/* gradient text */
 .highlight {
   background: linear-gradient(90deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
@@ -153,7 +172,7 @@ body.dark .hero-card {
 }
 
 /* =========================
-   BUTTONS (PREMIUM)
+   BUTTONS
 ========================= */
 .hero-actions .btn {
   display: inline-block;
@@ -172,28 +191,23 @@ body.dark .hero-card {
   transform: translateY(-3px) scale(1.03);
 }
 
-.btn.secondary {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-}
-
 /* =========================
-   SECTIONS (GLASS CARDS)
+   SECTION SYSTEM (COLOR SPLIT)
 ========================= */
 section {
   max-width: 1100px;
   margin: 70px auto;
-  padding: 50px;
-  border-radius: 20px;
-  background: var(--glass);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.15);
+  padding: 55px;
+  border-radius: 24px;
+
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255,255,255,0.12);
+
   box-shadow: 0 10px 40px rgba(0,0,0,0.08);
 
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease;
+  transition: all 0.7s ease;
 }
 
 section.show {
@@ -201,9 +215,17 @@ section.show {
   transform: translateY(0);
 }
 
-body.dark section {
-  background: var(--glass-dark);
-}
+/* LIGHT MODE SECTION COLORS */
+#about { background: var(--about); }
+#skills { background: var(--skills); }
+#projects { background: var(--projects); }
+#contact { background: var(--contact); }
+
+/* DARK MODE SECTION COLORS */
+body.dark #about { background: var(--about-dark); }
+body.dark #skills { background: var(--skills-dark); }
+body.dark #projects { background: var(--projects-dark); }
+body.dark #contact { background: var(--contact-dark); }
 
 /* =========================
    GRID + CARDS
@@ -215,17 +237,18 @@ body.dark section {
 }
 
 .card {
-  padding: 20px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(10px);
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
   transition: 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 body.dark .card {
@@ -234,26 +257,31 @@ body.dark .card {
 }
 
 /* =========================
-   PROFILE IMAGE (CLEAN PREMIUM)
+   PROFILE IMAGE
 ========================= */
 .profile-pic {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--primary);
+
+  border: 4px solid transparent;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  padding: 3px;
+
   display: block;
   margin: 20px auto;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-  transition: 0.4s;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  transition: 0.4s ease;
 }
 
 .profile-pic:hover {
-  transform: scale(1.08) rotate(2deg);
+  transform: scale(1.08) rotate(-2deg);
 }
 
 /* =========================
-   FORM (MODERN UX)
+   FORM
 ========================= */
 form {
   display: flex;
@@ -287,4 +315,18 @@ footer {
   text-align: center;
   padding: 40px;
   color: #94a3b8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .hero-card {
+    padding: 30px;
+  }
+
+  section {
+    margin: 30px 15px;
+    padding: 25px;
+  }
 }
