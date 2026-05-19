@@ -1,6 +1,3 @@
-/* =========================
-   RESET + ROOT SYSTEM
-========================= */
 * {
   margin: 0;
   padding: 0;
@@ -9,236 +6,123 @@
 
 :root {
   --primary: #6366f1;
-  --secondary: #06b6d4;
-  --accent: #22c55e;
-
-  --dark: #0b1220;
+  --dark: #0f172a;
   --light: #f8fafc;
-
-  --glass: rgba(255, 255, 255, 0.08);
-  --glass-dark: rgba(15, 23, 42, 0.6);
-
-  --shadow: 0 20px 60px rgba(0,0,0,0.12);
 }
 
-/* =========================
-   BODY (RESTORED BACKGROUND)
-========================= */
+/* BODY */
 body {
   font-family: "Segoe UI", sans-serif;
-  color: #0f172a;
-
-  background:
-    radial-gradient(circle at top, #e0f2fe, #f8fafc 40%, #ffffff);
-
-  overflow-x: hidden;
-  transition: all 0.4s ease;
+  background: var(--light);
+  color: var(--dark);
+  transition: 0.3s;
 }
 
 body.dark {
+  background: var(--dark);
   color: #e2e8f0;
-  background:
-    radial-gradient(circle at top, #0b1220, #0f172a, #020617);
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* NAV */
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 1000;
-  padding: 14px 20px;
-  backdrop-filter: blur(25px);
-  background: var(--glass);
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  padding: 15px;
 }
 
 body.dark .navbar {
-  background: var(--glass-dark);
+  background: rgba(15,23,42,0.8);
 }
 
 .navbar ul {
   display: flex;
   justify-content: center;
-  gap: 28px;
+  gap: 20px;
   list-style: none;
 }
 
-/* =========================
-   HERO (RESTORED)
-========================= */
+/* HERO */
 .hero {
-  padding: 110px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
 .hero-card {
-  max-width: 900px;
-  margin: auto;
-  padding: 70px;
-  border-radius: 28px;
-  background: var(--glass);
-  backdrop-filter: blur(30px);
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: var(--shadow);
-}
-
-body.dark .hero-card {
-  background: var(--glass-dark);
-}
-
-.highlight {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-.hero-actions .btn {
-  display: inline-block;
-  padding: 12px 18px;
-  margin: 8px;
-  border-radius: 12px;
-  font-weight: 600;
-  background: white;
-  color: black;
-}
-
-/* =========================
-   SECTIONS (RESTORED COLORS)
-========================= */
-section {
-  max-width: 1100px;
-  margin: 70px auto;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  color: white;
   padding: 60px;
-  border-radius: 24px;
-  box-shadow: var(--shadow);
+  border-radius: 20px;
+  max-width: 800px;
+  margin: auto;
 }
 
-/* ORIGINAL SECTION COLORS RESTORED */
-#about {
-  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+/* SECTIONS */
+section {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 40px;
 }
 
-#skills {
-  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
 }
 
-#projects {
-  background: linear-gradient(135deg, #10b981, #34d399);
-}
-
-#contact {
-  background: linear-gradient(135deg, #f59e0b, #f97316);
-}
-
-/* DARK MODE SECTION COLORS */
-body.dark #about {
-  background: linear-gradient(135deg, #1e3a8a, #2563eb);
-}
-
-body.dark #skills {
-  background: linear-gradient(135deg, #4c1d95, #6d28d9);
-}
-
-body.dark #projects {
-  background: linear-gradient(135deg, #064e3b, #059669);
-}
-
-body.dark #contact {
-  background: linear-gradient(135deg, #7c2d12, #ea580c);
-}
-
-/* =========================
-   CARDS (RESTORED)
-========================= */
+/* CARDS */
 .card {
-  padding: 22px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(15px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 body.dark .card {
-  background: rgba(15, 23, 42, 0.5);
-  color: #e2e8f0;
+  background: #1e293b;
+  color: white;
 }
 
-/* =========================
-   PROFILE PIC
-========================= */
+/* PROFILE PIC */
 .profile-pic {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  margin: 20px auto;
   display: block;
+  margin: 20px auto;
 }
 
-/* =========================
-   FORM
-========================= */
+/* FORM */
 form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+input, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 40px;
-  color: #94a3b8;
+  padding: 30px;
+  background: var(--dark);
+  color: white;
 }
 
 /* =========================
-   ⭐ ONLY FIX: SOCIAL CENTERING
+   SOCIALS (ONLY CENTER FIX)
 ========================= */
 
 .social-dock {
   display: flex;
-  justify-content: center;   /* ONLY CHANGE */
-  align-items: center;
-  gap: 25px;
-  margin-top: 30px;
-  width: 100%;
-}
-
-.social-icon {
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  border-radius: 14px;
-  font-size: 20px;
-  text-decoration: none;
-  background: rgba(255,255,255,0.15);
-  transition: 0.3s ease;
-}
-
-.social-icon:hover {
-  transform: translateY(-6px) scale(1.05);
-}
-
-.github:hover { background: #24292e; color: white; }
-.linkedin:hover { background: #0a66c2; color: white; }
-.whatsapp:hover { background: #25d366; color: white; }
-
-/* =========================
-   SOCIAL ICONS (CENTER FIX ONLY)
-========================= */
-
-.social-dock {
-  display: flex;
-  justify-content: center;   /* THIS centers ONLY socials */
-  align-items: center;
   gap: 20px;
   margin-top: 25px;
 }
@@ -247,32 +131,19 @@ footer {
   width: 50px;
   height: 50px;
   display: flex;
-  justify-content: center;
   align-items: center;
-
+  justify-content: center;
   border-radius: 12px;
-  text-decoration: none;
-
-  font-size: 20px;
   color: white;
-
-  transition: all 0.3s ease;
+  font-size: 20px;
+  transition: 0.3s;
 }
 
-/* brand colors */
-.github {
-  background: #24292e;
-}
+/* BRAND COLORS */
+.github { background: #24292e; }
+.linkedin { background: #0a66c2; }
+.whatsapp { background: #25d366; }
 
-.linkedin {
-  background: #0a66c2;
-}
-
-.whatsapp {
-  background: #25d366;
-}
-
-/* hover effect */
 .social-icon:hover {
-  transform: translateY(-5px) scale(1.1);
+  transform: translateY(-5px);
 }
