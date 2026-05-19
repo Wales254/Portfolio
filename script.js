@@ -4,17 +4,21 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================
-  // DARK / LIGHT MODE
+  // DARK / LIGHT MODE (FIXED + SAFE)
   // ==========================
   const themeToggle = document.getElementById("theme-toggle");
 
-  if (themeToggle) {
-    const savedTheme = localStorage.getItem("theme");
+  // FIX: Apply saved theme immediately (even before toggle interaction)
+  const savedTheme = localStorage.getItem("theme");
 
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark");
-      themeToggle.checked = true;
-    }
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+  }
+
+  if (themeToggle) {
+
+    // FIX: Sync checkbox state with saved theme
+    themeToggle.checked = document.body.classList.contains("dark");
 
     themeToggle.addEventListener("change", () => {
       document.body.classList.toggle("dark");
