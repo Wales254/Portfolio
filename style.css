@@ -1,44 +1,29 @@
-/* =========================
-   RESET
-========================= */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* =========================
-   ROOT
-========================= */
+/* ROOT */
 :root {
   --primary: #6366f1;
   --dark: #0f172a;
   --light: #f8fafc;
 }
 
-/* =========================
-   BODY
-========================= */
+/* BODY */
 body {
   font-family: "Segoe UI", sans-serif;
   background: var(--light);
   color: var(--dark);
 }
 
-/* DARK MODE */
-body.dark {
-  background: #0f172a;
-  color: #e2e8f0;
-}
-
-/* =========================
-   NAVBAR
-========================= */
+/* NAVBAR */
 .navbar {
   position: sticky;
   top: 0;
   background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(10px);
   padding: 15px;
 }
 
@@ -49,9 +34,7 @@ body.dark {
   list-style: none;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 .hero {
   padding: 80px 20px;
   text-align: center;
@@ -66,77 +49,86 @@ body.dark {
   margin: auto;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 section {
   max-width: 1000px;
   margin: 60px auto;
   padding: 40px;
 }
 
-/* =========================
-   GRID
-========================= */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
-/* =========================
-   CARDS
-========================= */
+/* CARDS */
 .card {
   background: white;
   padding: 20px;
   border-radius: 15px;
 }
 
-/* =========================
-   PROFILE PIC
-========================= */
+/* PROFILE PIC */
 .profile-pic {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  object-fit: cover;
   display: block;
   margin: 20px auto;
+  object-fit: cover;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
 }
 
 /* =========================
-   SOCIAL DOCK (FIXED CENTER)
+   ONLY SOCIAL FIX (CENTERED)
 ========================= */
+
 .social-dock {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: center;   /* ONLY centering here */
   align-items: center;
-  gap: 25px;
-  margin-top: 30px;
+  gap: 20px;
+  margin-top: 25px;
 }
 
-/* ICON */
 .social-icon {
-  width: 52px;
-  height: 52px;
+  width: 50px;
+  height: 50px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 12px;
-  font-size: 20px;
   text-decoration: none;
-  background: rgba(0,0,0,0.05);
+
+  background: #eee;
   transition: 0.3s;
 }
 
-/* HOVER */
 .social-icon:hover {
   transform: translateY(-5px);
 }
 
-/* COLORS */
 .github:hover { background: #24292e; color: white; }
 .linkedin:hover { background: #0a66c2; color: white; }
 .whatsapp:hover { background: #25d366; color: white; }
