@@ -16,18 +16,34 @@
 }
 
 /* =========================
-   BASE BODY
+   PREMIUM BACKGROUND SYSTEM
 ========================= */
 body {
   font-family: "Segoe UI", sans-serif;
-  background: var(--light);
   color: var(--dark);
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #f8fafc, #e0f2fe, #f1f5f9);
+  transition: all 0.4s ease;
 }
 
 body.dark {
-  background: var(--dark);
   color: #e2e8f0;
+  background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
+}
+
+/* soft glow background effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(99,102,241,0.15), transparent 60%);
+  z-index: -1;
+}
+
+body.dark::before {
+  background: radial-gradient(circle, rgba(56,189,248,0.12), transparent 60%);
 }
 
 /* =========================
@@ -36,7 +52,7 @@ body.dark {
 .navbar {
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(10px);
   padding: 15px;
   text-align: center;
@@ -44,7 +60,7 @@ body.dark {
 }
 
 body.dark .navbar {
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15, 23, 42, 0.75);
 }
 
 .navbar ul {
@@ -82,10 +98,9 @@ body.dark .navbar a {
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.highlight {
-  color: white;
-}
-
+/* =========================
+   BUTTONS
+========================= */
 .hero-actions .btn {
   padding: 10px 15px;
   background: white;
@@ -108,21 +123,31 @@ body.dark .navbar a {
 }
 
 /* =========================
-   SECTIONS (CARD STYLE)
+   SECTION BASE (FIXED - NO DUPLICATES)
 ========================= */
 section {
   max-width: 1000px;
   margin: 60px auto;
   padding: 40px;
   border-radius: 15px;
+
   background: var(--card-light);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
 }
 
 body.dark section {
   background: var(--card-dark);
   color: #e2e8f0;
+}
+
+/* scroll reveal */
+section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* =========================
@@ -142,7 +167,7 @@ body.dark section {
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .card:hover {
@@ -213,20 +238,6 @@ footer {
   padding: 30px;
   background: var(--dark);
   color: white;
-}
-
-/* =========================
-   ANIMATION (SCROLL REVEAL SUPPORT)
-========================= */
-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-
-section.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* =========================
