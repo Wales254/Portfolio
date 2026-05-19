@@ -1,3 +1,6 @@
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -10,12 +13,14 @@
   --light: #f8fafc;
 }
 
-/* BODY */
+/* =========================
+   BODY
+========================= */
 body {
   font-family: "Segoe UI", sans-serif;
   background: var(--light);
   color: var(--dark);
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 body.dark {
@@ -23,7 +28,9 @@ body.dark {
   color: #e2e8f0;
 }
 
-/* NAV */
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
   position: sticky;
   top: 0;
@@ -33,7 +40,7 @@ body.dark {
 }
 
 body.dark .navbar {
-  background: rgba(15,23,42,0.8);
+  background: rgba(15,23,42,0.85);
 }
 
 .navbar ul {
@@ -43,7 +50,9 @@ body.dark .navbar {
   list-style: none;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 .hero {
   padding: 80px 20px;
   text-align: center;
@@ -58,34 +67,96 @@ body.dark .navbar {
   margin: auto;
 }
 
-/* SECTIONS */
+/* =========================
+   SECTION BASE
+========================= */
 section {
   max-width: 1000px;
   margin: 60px auto;
   padding: 40px;
+  border-radius: 16px;
+  transition: 0.3s ease;
 }
 
-/* GRID */
+/* =========================
+   SECTION COLORS (LIGHT MODE)
+========================= */
+#about {
+  background: #dbeafe;
+}
+
+#skills {
+  background: #ede9fe;
+}
+
+#projects {
+  background: #dcfce7;
+}
+
+#contact {
+  background: #ffedd5;
+}
+
+/* =========================
+   SECTION COLORS (DARK MODE)
+========================= */
+body.dark #about {
+  background: #1e3a8a;
+}
+
+body.dark #skills {
+  background: #4c1d95;
+}
+
+body.dark #projects {
+  background: #064e3b;
+}
+
+body.dark #contact {
+  background: #7c2d12;
+}
+
+/* =========================
+   TEXT FIX (SAFE & CLEAN)
+========================= */
+section h2,
+section h3,
+section p {
+  color: inherit;
+}
+
+/* =========================
+   GRID
+========================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
   gap: 20px;
 }
 
-/* CARDS */
+/* =========================
+   CARDS
+========================= */
 .card {
-  background: white;
+  background: rgba(255,255,255,0.9);
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 body.dark .card {
-  background: #1e293b;
-  color: white;
+  background: rgba(30, 41, 59, 0.85);
+  color: #e2e8f0;
 }
 
-/* PROFILE PIC */
+/* =========================
+   PROFILE PIC
+========================= */
 .profile-pic {
   width: 140px;
   height: 140px;
@@ -95,7 +166,9 @@ body.dark .card {
   margin: 20px auto;
 }
 
-/* FORM */
+/* =========================
+   FORM
+========================= */
 form {
   display: flex;
   flex-direction: column;
@@ -108,7 +181,9 @@ input, textarea {
   border: 1px solid #ccc;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 footer {
   text-align: center;
   padding: 30px;
@@ -117,9 +192,8 @@ footer {
 }
 
 /* =========================
-   SOCIALS (ONLY CENTER FIX)
+   SOCIALS (CENTERED ONLY)
 ========================= */
-
 .social-dock {
   display: flex;
   justify-content: center;
@@ -146,36 +220,4 @@ footer {
 
 .social-icon:hover {
   transform: translateY(-5px);
-}
-
-/* =========================
-   DARK MODE TEXT FIX (IMPORTANT)
-========================= */
-
-body.dark section {
-  color: #e2e8f0;
-}
-
-/* Fix headings inside sections */
-body.dark h2,
-body.dark h3,
-body.dark p {
-  color: #e2e8f0;
-}
-
-/* Improve card readability in dark mode */
-body.dark .card {
-  background: rgba(30, 41, 59, 0.85);
-  color: #e2e8f0;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-/* Fix links inside cards */
-body.dark .card a {
-  color: #60a5fa;
-}
-
-/* Ensure section content doesn't blend with gradients */
-section {
-  color: inherit;
 }
