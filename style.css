@@ -66,72 +66,87 @@ body.dark .navbar {
   border-radius: 20px;
   max-width: 800px;
   margin: auto;
+
+  backdrop-filter: blur(20px);
 }
 
 /* =========================
-   🔥 SECTION COLORS (FIXED CORE)
+   SECTION BASE (GLASS + ANIMATION)
 ========================= */
-
 section {
   max-width: 1000px;
   margin: 60px auto;
   padding: 40px;
   border-radius: 20px;
-  transition: 0.3s ease;
+
+  opacity: 0;
+  transform: translateY(60px) scale(0.98);
+  filter: blur(6px);
+
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
 }
 
-/* ABOUT */
+section.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* =========================
+   ANIMATED GRADIENTS
+========================= */
+
 #about {
-  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  background: linear-gradient(-45deg, #3b82f6, #60a5fa, #38bdf8);
   color: white;
 }
 
-/* SKILLS */
 #skills {
-  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  background: linear-gradient(-45deg, #7c3aed, #a78bfa, #c084fc);
   color: white;
 }
 
-/* PROJECTS */
 #projects {
-  background: linear-gradient(135deg, #10b981, #34d399);
+  background: linear-gradient(-45deg, #10b981, #34d399, #6ee7b7);
   color: white;
 }
 
-/* CONTACT */
 #contact {
-  background: linear-gradient(135deg, #f59e0b, #f97316);
+  background: linear-gradient(-45deg, #f59e0b, #f97316, #fb923c);
   color: white;
 }
 
 /* =========================
-   DARK MODE SECTION FIX
+   DARK MODE SECTIONS
 ========================= */
 
 body.dark #about {
-  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  background: linear-gradient(-45deg, #1e3a8a, #2563eb);
 }
 
 body.dark #skills {
-  background: linear-gradient(135deg, #4c1d95, #6d28d9);
+  background: linear-gradient(-45deg, #4c1d95, #6d28d9);
 }
 
 body.dark #projects {
-  background: linear-gradient(135deg, #064e3b, #059669);
+  background: linear-gradient(-45deg, #064e3b, #059669);
 }
 
 body.dark #contact {
-  background: linear-gradient(135deg, #7c2d12, #ea580c);
+  background: linear-gradient(-45deg, #7c2d12, #ea580c);
 }
 
 /* =========================
-   CARDS
+   CARDS (GLASS PREMIUM)
 ========================= */
 .card {
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.85);
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
 
@@ -145,7 +160,7 @@ body.dark .card {
 }
 
 /* =========================
-   PROFILE
+   PROFILE PIC
 ========================= */
 .profile-pic {
   width: 140px;
@@ -182,40 +197,62 @@ footer {
 }
 
 /* =========================
-   SOCIALS (CENTER ONLY FIX)
+   FLOATING SOCIAL DOCK (APPLE STYLE)
 ========================= */
 
 .social-dock {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
   display: flex;
-  justify-content: center;   /* ONLY center fix */
-  gap: 20px;
-  margin-top: 25px;
+  flex-direction: column;
+  gap: 12px;
+
+  padding: 12px;
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  z-index: 9999;
 }
 
 .social-icon {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 12px;
   color: white;
-  font-size: 20px;
+
   transition: 0.3s;
+}
+
+.social-icon:hover {
+  transform: translateY(-6px) scale(1.1);
 }
 
 .github { background: #24292e; }
 .linkedin { background: #0a66c2; }
 .whatsapp { background: #25d366; }
 
-.social-icon:hover {
-  transform: translateY(-5px);
+/* =========================
+   DARK MODE TEXT FIX
+========================= */
+h1, h2, h3, p {
+  color: inherit;
 }
 
 /* =========================
-   TEXT FIX (IMPORTANT)
+   ANIMATION KEYFRAME
 ========================= */
-
-h1, h2, h3, p {
-  color: inherit;
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
