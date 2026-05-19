@@ -11,9 +11,7 @@
 
 <body>
 
-<!-- =========================
-     THEME TOGGLE (FIXED + STYLED READY)
-========================= -->
+<!-- THEME TOGGLE -->
 <div class="theme-toggle-wrapper">
   <input type="checkbox" id="theme-toggle">
   <label for="theme-toggle" class="toggle-label">🌓</label>
@@ -49,8 +47,10 @@
 <!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
+
   <div class="about-container">
     <img src="profile.jpeg" class="profile-pic" alt="Profile Picture"/>
+
     <div>
       <p>I am a Full Stack Developer from KCA University.</p>
       <p>I specialize in React, Node.js, PHP, Python & databases.</p>
@@ -61,6 +61,7 @@
 <!-- SKILLS -->
 <section id="skills">
   <h2>Skills</h2>
+
   <div class="grid">
     <div class="card"><i class="fab fa-html5"></i> HTML</div>
     <div class="card"><i class="fab fa-css3"></i> CSS</div>
@@ -74,8 +75,8 @@
 <!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
-  <div class="grid">
 
+  <div class="grid">
     <div class="card project">
       <h3>Smart Home System</h3>
       <p>IoT security system with alerts.</p>
@@ -93,44 +94,36 @@
       <p>Django management system.</p>
       <a href="#">GitHub</a>
     </div>
-
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT (FIXED + SOCIALS INSIDE) -->
 <section id="contact">
   <h2>Contact Me</h2>
 
   <form id="contact-form" action="https://formspree.io/f/xpwljarv" method="POST">
-    
     <input type="text" name="name" placeholder="Name" required />
-
     <input type="email" name="email" placeholder="Email" required />
-
     <textarea name="message" placeholder="Message" required></textarea>
-
     <button type="submit">Send Message</button>
-
   </form>
-</section>
 
-  </section>
-  <!-- PREMIUM SOCIAL DOCK -->
-<div class="social-dock">
+  <!-- SOCIAL ICONS (NOW PROPERLY CENTERED INSIDE SECTION) -->
+  <div class="social-dock">
 
-  <a href="https://github.com/Wales254" target="_blank" class="social-icon github" aria-label="GitHub">
-    <i class="fab fa-github"></i>
-  </a>
+    <a href="https://github.com/Wales254" target="_blank" class="social-icon github">
+      <i class="fab fa-github"></i>
+    </a>
 
-  <a href="https://www.linkedin.com/in/sydeny-walusala-wesonga/" target="_blank" class="social-icon linkedin" aria-label="LinkedIn">
-    <i class="fab fa-linkedin-in"></i>
-  </a>
+    <a href="https://www.linkedin.com/in/sydeny-walusala-wesonga/" target="_blank" class="social-icon linkedin">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
 
-  <a href="https://wa.me/25414610579" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+    <a href="https://wa.me/25414610579" target="_blank" class="social-icon whatsapp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
 
-</div>
+  </div>
 </section>
 
 <!-- FOOTER -->
