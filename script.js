@@ -1,3 +1,4 @@
+```javascript
 // ==========================
 // DOM READY WRAPPER
 // ==========================
@@ -21,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       localStorage.setItem(
         "theme",
-        document.body.classList.contains("dark") ? "dark" : "light"
+        document.body.classList.contains("dark")
+          ? "dark"
+          : "light"
       );
     });
   }
@@ -45,28 +48,34 @@ document.addEventListener("DOMContentLoaded", () => {
   function typeEffect() {
     if (!rotatingTitle) return;
 
-    const current = titles[titleIndex];
+    const currentTitle = titles[titleIndex];
 
-    rotatingTitle.textContent = current.substring(0, charIndex);
+    rotatingTitle.textContent =
+      currentTitle.substring(0, charIndex);
 
     if (!deleting) {
       charIndex++;
 
-      if (charIndex > current.length) {
+      if (charIndex > currentTitle.length) {
         deleting = true;
+
         setTimeout(typeEffect, 1200);
         return;
       }
     } else {
       charIndex--;
 
-      if (charIndex === 0) {
+      if (charIndex <= 0) {
+        charIndex = 0;
         deleting = false;
         titleIndex = (titleIndex + 1) % titles.length;
       }
     }
 
-    setTimeout(typeEffect, deleting ? 50 : 100);
+    setTimeout(
+      typeEffect,
+      deleting ? 50 : 100
+    );
   }
 
   typeEffect();
@@ -75,15 +84,29 @@ document.addEventListener("DOMContentLoaded", () => {
   // SMOOTH SCROLL
   // ==========================
   document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
 
-      const target = document.querySelector(link.getAttribute("href"));
+    link.addEventListener("click", event => {
+
+      const targetId = link.getAttribute("href");
+
+      // Ignore empty "#" links
+      if (!targetId || targetId === "#") {
+        return;
+      }
+
+      const target = document.querySelector(targetId);
 
       if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
       }
+
     });
+
   });
 
   // ==========================
@@ -91,55 +114,100 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================
   const sections = document.querySelectorAll("section");
 
-  const revealSections = () => {
-    const trigger = window.innerHeight * 0.85;
+  function revealSections() {
 
-    sections.forEach(sec => {
-      const top = sec.getBoundingClientRect().top;
+    const trigger =
+      window.innerHeight * 0.85;
+
+    sections.forEach(section => {
+
+      const top =
+        section.getBoundingClientRect().top;
 
       if (top < trigger) {
-        sec.classList.add("show");
+        section.classList.add("show");
       }
-    });
-  };
 
-  window.addEventListener("scroll", revealSections);
+    });
+
+  }
+
+  window.addEventListener(
+    "scroll",
+    revealSections,
+    { passive: true }
+  );
+
   revealSections();
 
   // ==========================
   // NAVBAR SCROLL EFFECT
   // ==========================
-  const navbar = document.querySelector(".navbar");
+  const navbar =
+    document.querySelector(".navbar");
 
-  window.addEventListener("scroll", () => {
+  function updateNavbar() {
+
     if (!navbar) return;
 
-    navbar.classList.toggle("nav-scrolled", window.scrollY > 50);
-  });
+    navbar.classList.toggle(
+      "nav-scrolled",
+      window.scrollY > 50
+    );
+
+  }
+
+  window.addEventListener(
+    "scroll",
+    updateNavbar,
+    { passive: true }
+  );
+
+  updateNavbar();
 
   // ==========================
-  // ACTIVE NAV LINK
+  // ACTIVE NAVIGATION LINK
   // ==========================
-  const navLinks = document.querySelectorAll(".navbar a");
+  const navLinks =
+    document.querySelectorAll(".navbar a");
 
-  window.addEventListener("scroll", () => {
+  function updateActiveNav() {
+
     let currentSection = "";
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 200;
+
+      const sectionTop =
+        section.offsetTop - 200;
 
       if (window.scrollY >= sectionTop) {
         currentSection = section.id;
       }
+
     });
 
     navLinks.forEach(link => {
+
       link.classList.remove("active");
 
-      if (link.getAttribute("href") === `#${currentSection}`) {
+      if (
+        link.getAttribute("href") ===
+        `#${currentSection}`
+      ) {
         link.classList.add("active");
       }
+
     });
-  });
+
+  }
+
+  window.addEventListener(
+    "scroll",
+    updateActiveNav,
+    { passive: true }
+  );
+
+  updateActiveNav();
 
 });
+```

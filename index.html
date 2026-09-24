@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -12,17 +13,20 @@
 <body>
 
 <!-- NAVBAR -->
+
 <nav class="navbar">
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#achievements">Achievements</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
+
 <header class="hero" id="home">
   <div class="hero-card">
     <h1>Hi, I'm <span class="highlight">Sydeny Wesonga</span></h1>
@@ -31,26 +35,32 @@
       I build scalable web applications, APIs, and modern UI experiences.
     </p>
 
-    <div class="hero-actions">
-      <a href="cv.pdf" class="btn" download>Download CV</a>
-      <a href="#projects" class="btn secondary">View Projects</a>
-    </div>
+```
+<div class="hero-actions">
+  <a href="cv.pdf" class="btn" download>Download CV</a>
+  <a href="#projects" class="btn secondary">View Projects</a>
+</div>
+```
+
   </div>
 </header>
 
 <!-- ABOUT -->
+
 <section id="about">
   <h2>About Me</h2>
   <div class="about-container">
-    <img src="profile.jpeg" class="profile-pic" />
+    <img src="profile.jpeg" class="profile-pic" alt="Sydeny Wesonga" />
     <div>
-      <p>I am a Full Stack Developer from KCA University.</p>
-      <p>I specialize in React, Node.js, PHP, Python & databases.</p>
+      <p>I am a Full Stack Developer and graduate of KCA University, specializing in Software Development.</p>
+      <p>I specialize in React, Node.js, PHP, Python, JavaScript, and databases.</p>
+      <p>I am passionate about building practical digital solutions while continuously developing my skills in software development, data, and emerging technologies.</p>
     </div>
   </div>
 </section>
 
 <!-- SKILLS -->
+
 <section id="skills">
   <h2>Skills</h2>
   <div class="grid">
@@ -63,33 +73,82 @@
   </div>
 </section>
 
+<!-- ACHIEVEMENTS & CERTIFICATIONS -->
+
+<section id="achievements">
+  <h2>Achievements & Certifications</h2>
+
+  <div class="grid achievements-grid">
+
+```
+<div class="card achievement-card">
+  <i class="fas fa-database achievement-icon"></i>
+  <h3>IBM Data Fundamentals</h3>
+  <p>
+    Completed Data Fundamentals training with IBM under the support
+    of the ICT Authority of Kenya, developing foundational knowledge
+    in data concepts, data science, tools, and analytics.
+  </p>
+  <span class="achievement-tag">IBM • ICT Authority of Kenya</span>
+</div>
+
+<div class="card achievement-card">
+  <i class="fas fa-code achievement-icon"></i>
+  <h3>PLP Software Engineering</h3>
+  <p>
+    Completed Software Engineering training through the Power Learn
+    Project (PLP), with a focus on modern full-stack web development
+    and the MERN stack.
+  </p>
+  <span class="achievement-tag">PLP • MERN Stack</span>
+</div>
+
+<div class="card achievement-card">
+  <i class="fas fa-award achievement-icon"></i>
+  <h3>ALX Career Essentials</h3>
+  <p>
+    Completed the ALX Career Essentials program, strengthening
+    professional development, workplace readiness, communication,
+    and career skills.
+  </p>
+  <span class="achievement-tag">ALX</span>
+</div>
+```
+
+  </div>
+</section>
+
 <!-- PROJECTS -->
+
 <section id="projects">
   <h2>Projects</h2>
   <div class="grid">
 
-    <div class="card project">
-      <h3>Smart Home System</h3>
-      <p>IoT security system with alerts.</p>
-      <a href="#">GitHub</a>
-    </div>
+```
+<div class="card project">
+  <h3>Smart Home System</h3>
+  <p>IoT security system with alerts.</p>
+  <a href="#">GitHub</a>
+</div>
 
-    <div class="card project">
-      <h3>Survey App</h3>
-      <p>Full stack survey system.</p>
-      <a href="#">GitHub</a>
-    </div>
+<div class="card project">
+  <h3>Survey App</h3>
+  <p>Full stack survey system.</p>
+  <a href="#">GitHub</a>
+</div>
 
-    <div class="card project">
-      <h3>Laundry System</h3>
-      <p>Django management system.</p>
-      <a href="#">GitHub</a>
-    </div>
+<div class="card project">
+  <h3>Laundry System</h3>
+  <p>Django management system.</p>
+  <a href="#">GitHub</a>
+</div>
+```
 
   </div>
 </section>
 
 <!-- CONTACT -->
+
 <section id="contact">
   <h2>Contact Me</h2>
 
@@ -102,10 +161,12 @@
 </section>
 
 <!-- FOOTER -->
+
 <footer>
   <p>© 2026 Sydeny Wesonga</p>
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
