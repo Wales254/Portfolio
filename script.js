@@ -4,18 +4,17 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================
-  // THEME TOGGLE (FULLY SYNCED)
+  // DARK / LIGHT MODE
   // ==========================
   const themeToggle = document.getElementById("theme-toggle");
 
-  const savedTheme = localStorage.getItem("theme");
-
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark");
-  }
-
   if (themeToggle) {
-    themeToggle.checked = document.body.classList.contains("dark");
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark");
+      themeToggle.checked = true;
+    }
 
     themeToggle.addEventListener("change", () => {
       document.body.classList.toggle("dark");
@@ -75,35 +74,31 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================
   // SMOOTH SCROLL
   // ==========================
-  document.querySelectorAll(".navbar a").forEach(link => {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", (e) => {
-      const targetId = link.getAttribute("href");
+      e.preventDefault();
 
-      if (targetId && targetId.startsWith("#")) {
-        e.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
 
-        const target = document.querySelector(targetId);
-
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
       }
     });
   });
 
   // ==========================
-  // SECTION REVEAL
+  // FADE-IN ON SCROLL
   // ==========================
   const sections = document.querySelectorAll("section");
 
   const revealSections = () => {
     const trigger = window.innerHeight * 0.85;
 
-    sections.forEach(section => {
-      const top = section.getBoundingClientRect().top;
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
 
       if (top < trigger) {
-        section.classList.add("show");
+        sec.classList.add("show");
       }
     });
   };
@@ -112,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
   revealSections();
 
   // ==========================
-  // NAVBAR EFFECT
+  // NAVBAR SCROLL EFFECT
   // ==========================
   const navbar = document.querySelector(".navbar");
 
@@ -123,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================
-  // ACTIVE LINK
+  // ACTIVE NAV LINK
   // ==========================
   const navLinks = document.querySelectorAll(".navbar a");
 
@@ -131,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentSection = "";
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 150;
+      const sectionTop = section.offsetTop - 200;
 
       if (window.scrollY >= sectionTop) {
         currentSection = section.id;
@@ -146,63 +141,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
-  // ==========================
-  // CONTACT FORM (NO REDIRECT + SUCCESS POPUP)
-  // ==========================
-  const contactForm = document.getElementById("contact-form");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", async (e) => {
-      e.preventDefault(); // stop Formspree redirect
-
-      const formData = new FormData(contactForm);
-
-      try {
-        const response = await fetch(contactForm.action, {
-          method: "POST",
-          body: formData,
-          headers: {
-            Accept: "application/json"
-          }
-        });
-
-        if (response.ok) {
-          showSuccessMessage();
-          contactForm.reset();
-        } else {
-          alert("❌ Something went wrong. Please try again.");
-        }
-
-      } catch (error) {
-        alert("❌ Network error. Please check your connection.");
-      }
-    });
-  }
-
-  // ==========================
-  // SUCCESS MESSAGE UI
-  // ==========================
-  function showSuccessMessage() {
-    const msg = document.createElement("div");
-
-    msg.textContent = "✅ Message sent successfully!";
-    msg.style.position = "fixed";
-    msg.style.bottom = "20px";
-    msg.style.right = "20px";
-    msg.style.background = "#22c55e";
-    msg.style.color = "white";
-    msg.style.padding = "15px 20px";
-    msg.style.borderRadius = "10px";
-    msg.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
-    msg.style.zIndex = "9999";
-    msg.style.fontWeight = "bold";
-
-    document.body.appendChild(msg);
-
-    setTimeout(() => {
-      msg.remove();
-    }, 3000);
-  }
 
 });
