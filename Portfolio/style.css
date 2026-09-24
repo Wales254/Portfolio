@@ -48,31 +48,23 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 
-  /* SaaS background */
   background:
     radial-gradient(
       circle at 10% 10%,
-      rgba(99, 102, 241, 0.12),
+      rgba(99, 102, 241, 0.10),
       transparent 28%
     ),
     radial-gradient(
       circle at 90% 20%,
-      rgba(6, 182, 212, 0.10),
+      rgba(6, 182, 212, 0.08),
       transparent 25%
     ),
-    radial-gradient(
-      circle at 50% 90%,
-      rgba(139, 92, 246, 0.08),
-      transparent 30%
-    ),
     #f8fafc;
-
-  position: relative;
 }
 
 
 /* =========================
-   SUBTLE SAAS GRID
+   SUBTLE BACKGROUND GRID
 ========================= */
 
 body::before {
@@ -82,44 +74,16 @@ body::before {
 
   background-image:
     linear-gradient(
-      rgba(99, 102, 241, 0.035) 1px,
+      rgba(99, 102, 241, 0.025) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(99, 102, 241, 0.035) 1px,
+      rgba(99, 102, 241, 0.025) 1px,
       transparent 1px
     );
 
   background-size: 40px 40px;
-
-  pointer-events: none;
-  z-index: -2;
-}
-
-
-/* =========================
-   SOFT BACKGROUND GLOW
-========================= */
-
-body::after {
-  content: "";
-  position: fixed;
-
-  width: 420px;
-  height: 420px;
-
-  top: 20%;
-  right: -180px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(99, 102, 241, 0.12),
-      transparent 70%
-    );
-
-  filter: blur(20px);
 
   pointer-events: none;
   z-index: -1;
@@ -135,10 +99,10 @@ body::after {
   top: 0;
   z-index: 1000;
 
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.90);
 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
   padding: 16px 20px;
 
@@ -172,8 +136,7 @@ body::after {
 
   padding: 6px 2px;
 
-  transition:
-    color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .navbar a::after {
@@ -187,12 +150,7 @@ body::after {
   width: 0;
   height: 2px;
 
-  background:
-    linear-gradient(
-      90deg,
-      var(--primary),
-      var(--secondary)
-    );
+  background: var(--primary);
 
   transition: width 0.3s ease;
 }
@@ -211,41 +169,10 @@ body::after {
 ========================= */
 
 .hero {
-  position: relative;
-
-  padding: 100px 20px 80px;
+  padding: 85px 20px 70px;
 
   text-align: center;
 }
-
-
-/* Decorative SaaS glow */
-
-.hero::before {
-  content: "";
-
-  position: absolute;
-
-  width: 500px;
-  height: 500px;
-
-  top: 20px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(99, 102, 241, 0.12),
-      transparent 70%
-    );
-
-  filter: blur(15px);
-
-  z-index: -1;
-}
-
 
 .hero-card {
   position: relative;
@@ -254,44 +181,45 @@ body::after {
 
   margin: auto;
 
-  padding: 75px 45px;
+  padding: 70px 45px;
 
-  border-radius: 28px;
+  border-radius: 26px;
 
   color: var(--white);
 
   background:
     linear-gradient(
       135deg,
-      #6366f1 0%,
-      #4f46e5 45%,
-      #06b6d4 100%
+      #6366f1,
+      #4f46e5 50%,
+      #06b6d4
     );
 
   box-shadow:
-    0 30px 70px rgba(79, 70, 229, 0.25);
+    0 25px 60px rgba(79, 70, 229, 0.22);
 
   overflow: hidden;
 }
 
 
-/* Hero decorative circles */
+/* Decorative hero shapes */
 
 .hero-card::before {
   content: "";
 
   position: absolute;
 
-  width: 250px;
-  height: 250px;
+  width: 240px;
+  height: 240px;
 
-  top: -100px;
+  top: -120px;
   right: -80px;
 
   border-radius: 50%;
 
-  background:
-    rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.08);
+
+  pointer-events: none;
 }
 
 .hero-card::after {
@@ -302,15 +230,30 @@ body::after {
   width: 180px;
   height: 180px;
 
-  bottom: -80px;
-  left: -50px;
+  bottom: -90px;
+  left: -60px;
 
   border-radius: 50%;
 
-  background:
-    rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
+
+  pointer-events: none;
 }
 
+.hero-label {
+  position: relative;
+  z-index: 2;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 15px;
+
+  opacity: 0.9;
+}
 
 .hero-card h1 {
   position: relative;
@@ -383,7 +326,11 @@ body::after {
 
   text-decoration: none;
 
-  display: inline-block;
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
 
   font-weight: 700;
 
@@ -391,8 +338,7 @@ body::after {
 
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease;
+    box-shadow 0.3s ease;
 }
 
 .btn:hover {
@@ -420,44 +366,57 @@ body::after {
 ========================= */
 
 section {
-  position: relative;
-
   width: min(1050px, calc(100% - 40px));
 
-  margin: 80px auto;
+  margin: 70px auto;
 
-  padding: 50px 25px;
+  padding: 50px 30px;
 
-  /* Glass/SaaS surface */
-
-  background:
-    rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.82);
 
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.8);
 
-  border-radius: 24px;
+  border-radius: 22px;
 
   box-shadow:
-    0 15px 45px rgba(15, 23, 42, 0.05);
+    0 12px 40px rgba(15, 23, 42, 0.05);
 }
 
-section h2 {
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+
+.section-heading {
   text-align: center;
 
-  font-size: clamp(1.7rem, 4vw, 2.3rem);
-
   margin-bottom: 38px;
+}
+
+.section-heading span {
+  display: block;
+
+  color: var(--primary);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 8px;
+}
+
+.section-heading h2 {
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
 
   line-height: 1.3;
 }
 
-
-/* Small gradient line under headings */
-
-section h2::after {
+.section-heading h2::after {
   content: "";
 
   display: block;
@@ -486,39 +445,23 @@ section h2::after {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  gap: 40px;
+  gap: 45px;
 
   max-width: 900px;
 
   margin: 0 auto;
 }
 
-.about-container > div {
-  flex: 1;
-
-  min-width: 0;
+.about-image {
+  flex-shrink: 0;
 }
-
-.about-container p {
-  color: var(--text);
-
-  line-height: 1.85;
-
-  margin-bottom: 14px;
-}
-
-
-/* =========================
-   PROFILE IMAGE
-========================= */
 
 .profile-pic {
   width: 155px;
   height: 155px;
-
-  flex-shrink: 0;
 
   border-radius: 50%;
 
@@ -541,16 +484,27 @@ section h2::after {
   transform: scale(1.05);
 }
 
+.about-content {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.about-content p {
+  color: var(--text);
+
+  line-height: 1.8;
+
+  margin-bottom: 14px;
+}
+
 
 /* =========================
-   GRID
+   GENERAL GRID
 ========================= */
 
 .grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(220px, 1fr));
 
   gap: 24px;
 
@@ -559,16 +513,15 @@ section h2::after {
 
 
 /* =========================
-   CARDS
+   GENERAL CARDS
 ========================= */
 
 .card {
-  background:
-    rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
 
-  padding: 27px;
+  padding: 26px;
 
-  border-radius: 18px;
+  border-radius: 17px;
 
   border: 1px solid var(--border);
 
@@ -579,15 +532,15 @@ section h2::after {
     box-shadow 0.3s ease,
     border-color 0.3s ease;
 
-  overflow: hidden;
-
   min-width: 0;
 
-  word-wrap: break-word;
+  overflow: hidden;
+
+  overflow-wrap: break-word;
 }
 
 .card:hover {
-  transform: translateY(-7px);
+  transform: translateY(-6px);
 
   box-shadow: var(--shadow-hover);
 
@@ -597,139 +550,11 @@ section h2::after {
 
 
 /* =========================
-   SKILLS
-========================= */
-
-#skills .card {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 12px;
-
-  min-height: 95px;
-
-  font-weight: 700;
-
-  color: var(--text);
-}
-
-#skills .card i {
-  font-size: 27px;
-
-  color: var(--primary);
-}
-
-
-/* =========================
-   ACHIEVEMENTS
-========================= */
-
-#achievements {
-  text-align: center;
-}
-
-.achievements-grid {
-  grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
-}
-
-.achievement-card {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  height: 100%;
-
-  min-height: 330px;
-
-  padding: 32px 26px;
-
-  text-align: center;
-}
-
-.achievement-icon {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 68px;
-  height: 68px;
-
-  flex-shrink: 0;
-
-  margin-bottom: 20px;
-
-  border-radius: 50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      #eef2ff,
-      #ecfeff
-    );
-
-  color: var(--primary);
-
-  font-size: 28px;
-}
-
-.achievement-card h3 {
-  font-size: 20px;
-
-  line-height: 1.35;
-
-  margin-bottom: 15px;
-
-  color: var(--dark);
-}
-
-.achievement-card p {
-  color: var(--text);
-
-  line-height: 1.7;
-
-  font-size: 15px;
-
-  margin-bottom: 22px;
-
-  flex-grow: 1;
-}
-
-.achievement-tag {
-  display: inline-block;
-
-  max-width: 100%;
-
-  padding: 7px 13px;
-
-  background: #eef2ff;
-
-  color: var(--primary-dark);
-
-  border-radius: 20px;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  line-height: 1.4;
-
-  overflow-wrap: break-word;
-}
-
-
-/* =========================
    WHAT I DO
 ========================= */
 
 .services-grid {
-  grid-template-columns:
-    repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .service-card {
@@ -742,11 +567,116 @@ section h2::after {
   flex-direction: column;
 
   align-items: center;
-
-  justify-content: flex-start;
 }
 
 .service-icon {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  margin-bottom: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff,
+      #ecfeff
+    );
+
+  color: var(--primary);
+
+  font-size: 26px;
+}
+
+.service-card h3 {
+  font-size: 18px;
+
+  line-height: 1.35;
+
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  color: var(--text);
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.skill-card {
+  min-height: 95px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  color: var(--text);
+
+  font-weight: 700;
+
+  text-align: center;
+}
+
+.skill-card i {
+  color: var(--primary);
+
+  font-size: 27px;
+}
+
+
+/* =========================
+   ACHIEVEMENTS
+   THREE CARDS IN ONE ROW
+========================= */
+
+.achievements-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+
+  align-items: stretch;
+}
+
+.achievement-card {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  height: 100%;
+
+  min-height: 320px;
+
+  padding: 30px 22px;
+
+  text-align: center;
+}
+
+.achievement-icon {
   width: 65px;
   height: 65px;
 
@@ -754,6 +684,10 @@ section h2::after {
 
   align-items: center;
   justify-content: center;
+
+  flex-shrink: 0;
+
+  margin-bottom: 18px;
 
   border-radius: 50%;
 
@@ -767,34 +701,60 @@ section h2::after {
   color: var(--primary);
 
   font-size: 27px;
-
-  margin-bottom: 20px;
-
-  flex-shrink: 0;
 }
 
-.service-card h3 {
-  font-size: 20px;
+.achievement-card h3 {
+  font-size: 19px;
 
   line-height: 1.35;
 
   margin-bottom: 12px;
+
+  color: var(--dark);
 }
 
-.service-card p {
+.achievement-card p {
   color: var(--text);
 
-  line-height: 1.7;
+  font-size: 14px;
 
-  font-size: 15px;
+  line-height: 1.65;
 
-  max-width: 330px;
+  margin-bottom: 18px;
+
+  flex-grow: 1;
+}
+
+.achievement-tag {
+  display: inline-block;
+
+  max-width: 100%;
+
+  padding: 7px 12px;
+
+  background: #eef2ff;
+
+  color: var(--primary-dark);
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  overflow-wrap: break-word;
 }
 
 
 /* =========================
    PROJECTS
 ========================= */
+
+.projects-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
 
 .project {
   display: flex;
@@ -804,8 +764,33 @@ section h2::after {
   height: 100%;
 }
 
+.project-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff,
+      #ecfeff
+    );
+
+  color: var(--primary);
+
+  font-size: 23px;
+}
+
 .project h3 {
-  font-size: 20px;
+  font-size: 19px;
 
   line-height: 1.35;
 
@@ -815,15 +800,21 @@ section h2::after {
 .project p {
   color: var(--text);
 
+  font-size: 14px;
+
   line-height: 1.7;
 
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 
   flex-grow: 1;
 }
 
-.project a {
-  display: inline-block;
+.project-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
 
   color: var(--primary);
 
@@ -834,10 +825,8 @@ section h2::after {
   margin-top: auto;
 }
 
-.project a:hover {
+.project-link:hover {
   color: var(--primary-dark);
-
-  text-decoration: underline;
 }
 
 
@@ -845,16 +834,66 @@ section h2::after {
    CONTACT
 ========================= */
 
+.contact-container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 45px;
+
+  align-items: start;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+}
+
+.contact-info h3 {
+  font-size: 22px;
+
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  color: var(--text);
+
+  line-height: 1.75;
+
+  margin-bottom: 25px;
+}
+
+.contact-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 15px;
+
+  color: var(--text);
+
+  font-size: 14px;
+
+  overflow-wrap: anywhere;
+}
+
+.contact-item i {
+  color: var(--primary);
+
+  width: 20px;
+
+  text-align: center;
+
+  flex-shrink: 0;
+}
+
 form {
   display: flex;
 
   flex-direction: column;
 
   gap: 14px;
-
-  max-width: 700px;
-
-  margin: 0 auto;
 }
 
 input,
@@ -944,7 +983,7 @@ footer {
 
   padding: 40px 20px;
 
-  margin-top: 80px;
+  margin-top: 70px;
 
   background:
     linear-gradient(
@@ -962,14 +1001,38 @@ footer p {
 
 
 /* =========================
-   RESPONSIVE DESIGN
+   TABLET
 ========================= */
 
-@media (max-width: 700px) {
+@media (max-width: 950px) {
 
-  .navbar {
-    padding: 13px 12px;
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .achievements-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================
+   SMALL TABLETS
+========================= */
+
+@media (max-width: 750px) {
 
   .navbar ul {
     gap: 8px 15px;
@@ -979,12 +1042,54 @@ footer p {
     font-size: 14px;
   }
 
+  .about-container {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .about-content {
+    width: 100%;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    padding: 13px 10px;
+  }
+
+  .navbar ul {
+    gap: 7px 12px;
+  }
+
+  .navbar a {
+    font-size: 13px;
+  }
+
   .hero {
-    padding: 55px 15px 45px;
+    padding: 50px 14px 40px;
   }
 
   .hero-card {
-    padding: 50px 22px;
+    padding: 45px 20px;
 
     border-radius: 20px;
   }
@@ -993,95 +1098,77 @@ footer p {
     font-size: 15px;
   }
 
-  section {
-    width: calc(100% - 24px);
-
-    margin: 50px auto;
-
-    padding: 35px 12px;
-
-    border-radius: 18px;
-  }
-
-  .about-container {
-    flex-direction: column;
-
-    text-align: center;
-
-    gap: 25px;
-  }
-
-  .about-container > div {
-    width: 100%;
-  }
-
-  .profile-pic {
-    width: 135px;
-    height: 135px;
-  }
-
-  .grid,
-  .achievements-grid,
-  .services-grid {
-    grid-template-columns: 1fr;
-
-    gap: 18px;
-  }
-
-  .achievement-card {
-    min-height: auto;
-
-    padding: 28px 22px;
-  }
-
-  .service-card {
-    min-height: auto;
-
-    padding: 28px 22px;
-  }
-
   .hero-actions {
     flex-direction: column;
 
-    gap: 8px;
+    gap: 9px;
   }
 
   .btn {
     width: min(100%, 250px);
+
+    justify-content: center;
+  }
+
+  section {
+    width: calc(100% - 20px);
+
+    margin: 45px auto;
+
+    padding: 35px 15px;
+
+    border-radius: 18px;
+  }
+
+  .services-grid,
+  .skills-grid,
+  .achievements-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-card {
+    min-height: auto;
+  }
+
+  .service-card {
+    min-height: auto;
+  }
+
+  .project {
+    min-height: 250px;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
   }
 }
 
 
 /* =========================
-   SMALL PHONES
+   VERY SMALL PHONES
 ========================= */
 
 @media (max-width: 400px) {
 
-  .navbar ul {
-    gap: 7px 11px;
-  }
-
-  .navbar a {
-    font-size: 13px;
-  }
-
   .hero-card {
-    padding: 40px 17px;
+    padding: 38px 16px;
   }
 
   section {
-    padding-left: 7px;
-    padding-right: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .card {
-    padding: 22px 18px;
+    padding: 22px 17px;
   }
 
-  .achievement-card,
-  .service-card {
-    padding: 25px 18px;
+  .profile-pic {
+    width: 135px;
+    height: 135px;
   }
 }
 ```
