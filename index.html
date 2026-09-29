@@ -1,172 +1,711 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sydeny Wesonga | Developer Portfolio</title>
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sydeny Wesonga | Developer Portfolio</title>
+
+    <meta
+        name="description"
+        content="Portfolio of Sydeny Wesonga, a Full Stack Developer specializing in modern web applications, APIs, and digital solutions."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
-<nav class="navbar">
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+    <nav class="navbar">
 
-<!-- HERO -->
+        <div class="nav-container">
 
-<header class="hero" id="home">
-  <div class="hero-card">
-    <h1>Hi, I'm <span class="highlight">Sydeny Wesonga</span></h1>
-    <h2 id="rotatingTitle">Full Stack Developer</h2>
-    <p class="hero-intro">
-      I build scalable web applications, APIs, and modern UI experiences.
-    </p>
+            <a href="#home" class="logo">
+                Sydeny<span>.</span>
+            </a>
 
-```
-<div class="hero-actions">
-  <a href="cv.pdf" class="btn" download>Download CV</a>
-  <a href="#projects" class="btn secondary">View Projects</a>
-</div>
-```
+            <ul class="nav-links">
 
-  </div>
-</header>
+                <li>
+                    <a href="#home" class="active">Home</a>
+                </li>
 
-<!-- ABOUT -->
+                <li>
+                    <a href="#about">About</a>
+                </li>
 
-<section id="about">
-  <h2>About Me</h2>
-  <div class="about-container">
-    <img src="profile.jpeg" class="profile-pic" alt="Sydeny Wesonga" />
-    <div>
-      <p>I am a Full Stack Developer and graduate of KCA University, specializing in Software Development.</p>
-      <p>I specialize in React, Node.js, PHP, Python, JavaScript, and databases.</p>
-      <p>I am passionate about building practical digital solutions while continuously developing my skills in software development, data, and emerging technologies.</p>
-    </div>
-  </div>
-</section>
+                <li>
+                    <a href="#what-i-do">What I Do</a>
+                </li>
 
-<!-- SKILLS -->
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
 
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="grid">
-    <div class="card"><i class="fab fa-html5"></i> HTML</div>
-    <div class="card"><i class="fab fa-css3"></i> CSS</div>
-    <div class="card"><i class="fab fa-js"></i> JavaScript</div>
-    <div class="card"><i class="fab fa-react"></i> React</div>
-    <div class="card"><i class="fab fa-node"></i> Node.js</div>
-    <div class="card"><i class="fab fa-php"></i> PHP</div>
-  </div>
-</section>
+                <li>
+                    <a href="#achievements">Achievements</a>
+                </li>
 
-<!-- ACHIEVEMENTS & CERTIFICATIONS -->
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
 
-<section id="achievements">
-  <h2>Achievements & Certifications</h2>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
 
-  <div class="grid achievements-grid">
+            </ul>
 
-```
-<div class="card achievement-card">
-  <i class="fas fa-database achievement-icon"></i>
-  <h3>IBM Data Fundamentals</h3>
-  <p>
-    Completed Data Fundamentals training with IBM under the support
-    of the ICT Authority of Kenya, developing foundational knowledge
-    in data concepts, data science, tools, and analytics.
-  </p>
-  <span class="achievement-tag">IBM • ICT Authority of Kenya</span>
-</div>
+        </div>
 
-<div class="card achievement-card">
-  <i class="fas fa-code achievement-icon"></i>
-  <h3>PLP Software Engineering</h3>
-  <p>
-    Completed Software Engineering training through the Power Learn
-    Project (PLP), with a focus on modern full-stack web development
-    and the MERN stack.
-  </p>
-  <span class="achievement-tag">PLP • MERN Stack</span>
-</div>
+    </nav>
 
-<div class="card achievement-card">
-  <i class="fas fa-award achievement-icon"></i>
-  <h3>ALX Career Essentials</h3>
-  <p>
-    Completed the ALX Career Essentials program, strengthening
-    professional development, workplace readiness, communication,
-    and career skills.
-  </p>
-  <span class="achievement-tag">ALX</span>
-</div>
-```
 
-  </div>
-</section>
+    <!-- =========================
+         HERO
+    ========================== -->
 
-<!-- PROJECTS -->
+    <header class="hero" id="home">
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="grid">
+        <div class="container">
 
-```
-<div class="card project">
-  <h3>Smart Home System</h3>
-  <p>IoT security system with alerts.</p>
-  <a href="#">GitHub</a>
-</div>
+            <div class="hero-content">
 
-<div class="card project">
-  <h3>Survey App</h3>
-  <p>Full stack survey system.</p>
-  <a href="#">GitHub</a>
-</div>
+                <h1>
+                    Hi, I'm
+                    <span>Sydeny Wesonga</span>
+                </h1>
 
-<div class="card project">
-  <h3>Laundry System</h3>
-  <p>Django management system.</p>
-  <a href="#">GitHub</a>
-</div>
-```
+                <h2 id="rotatingTitle">
+                    Full Stack Developer
+                </h2>
 
-  </div>
-</section>
+                <p>
+                    I build scalable web applications, APIs,
+                    and modern UI experiences that solve practical
+                    problems and create meaningful digital experiences.
+                </p>
 
-<!-- CONTACT -->
+                <div class="hero-buttons">
 
-<section id="contact">
-  <h2>Contact Me</h2>
+                    <a
+                        href="cv.pdf"
+                        class="btn btn-primary"
+                        download
+                    >
+                        <i class="fas fa-download"></i>
+                        &nbsp; Download CV
+                    </a>
 
-  <form id="contact-form">
-    <input type="text" placeholder="Name" required />
-    <input type="email" placeholder="Email" required />
-    <textarea placeholder="Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+                    <a
+                        href="#projects"
+                        class="btn btn-secondary"
+                    >
+                        View Projects
+                        &nbsp; <i class="fas fa-arrow-down"></i>
+                    </a>
 
-<!-- FOOTER -->
+                </div>
 
-<footer>
-  <p>© 2026 Sydeny Wesonga</p>
-</footer>
+            </div>
 
-<script src="script.js"></script>
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about" class="about">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>About Me</h2>
+
+                <p>
+                    A software developer focused on building
+                    practical and reliable digital solutions.
+                </p>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <div class="about-image">
+
+                    <img
+                        src="profile.jpeg"
+                        alt="Sydeny Wesonga"
+                    >
+
+                </div>
+
+
+                <div class="about-text">
+
+                    <h3>
+                        Full Stack Developer
+                    </h3>
+
+                    <p>
+                        I am a Full Stack Developer and graduate
+                        of KCA University, specializing in Software
+                        Development.
+                    </p>
+
+                    <p>
+                        I work with technologies including React,
+                        Node.js, PHP, Python, JavaScript, and
+                        databases to build modern web applications
+                        and APIs.
+                    </p>
+
+                    <p>
+                        I am passionate about building practical
+                        digital solutions while continuously
+                        developing my skills in software development,
+                        data, and emerging technologies.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         WHAT I DO
+    ========================== -->
+
+    <section id="what-i-do">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>What I Do</h2>
+
+                <p>
+                    Areas where I apply my technical skills
+                    to build useful digital solutions.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+                <div class="card">
+
+                    <h3>
+                        <i class="fas fa-code"></i>
+                        Full Stack Development
+                    </h3>
+
+                    <p>
+                        Building responsive web applications
+                        using modern frontend and backend
+                        technologies.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        <i class="fas fa-server"></i>
+                        API Development
+                    </h3>
+
+                    <p>
+                        Creating RESTful APIs and backend
+                        services for reliable data processing
+                        and application integration.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        <i class="fas fa-chart-line"></i>
+                        Data & Analytics
+                    </h3>
+
+                    <p>
+                        Applying data concepts and analysis
+                        techniques to understand information
+                        and support practical solutions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills" class="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Skills</h2>
+
+                <p>
+                    Technologies and technical areas I work with.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+
+                    <i class="fab fa-html5"></i>
+
+                    <h3>HTML</h3>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <i class="fab fa-css3-alt"></i>
+
+                    <h3>CSS</h3>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <i class="fab fa-js"></i>
+
+                    <h3>JavaScript</h3>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <i class="fab fa-react"></i>
+
+                    <h3>React</h3>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <i class="fab fa-node-js"></i>
+
+                    <h3>Node.js</h3>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <i class="fab fa-php"></i>
+
+                    <h3>PHP</h3>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <i class="fab fa-python"></i>
+
+                    <h3>Python</h3>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <i class="fas fa-database"></i>
+
+                    <h3>Databases</h3>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <i class="fas fa-chart-bar"></i>
+
+                    <h3>Data Analysis</h3>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <i class="fab fa-git-alt"></i>
+
+                    <h3>Git & GitHub</h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACHIEVEMENTS
+    ========================== -->
+
+    <section id="achievements">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Achievements & Certifications</h2>
+
+                <p>
+                    Training and professional development milestones.
+                </p>
+
+            </div>
+
+
+            <div class="achievements-grid">
+
+
+                <div class="achievement-card">
+
+                    <i class="fas fa-database"></i>
+
+                    <h3>
+                        IBM Data Fundamentals
+                    </h3>
+
+                    <p>
+                        Completed Data Fundamentals training with
+                        IBM under the support of the ICT Authority
+                        of Kenya.
+                    </p>
+
+                    <p>
+                        Foundational knowledge in data concepts,
+                        data science, tools, and analytics.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-card">
+
+                    <i class="fas fa-code"></i>
+
+                    <h3>
+                        PLP Software Engineering
+                    </h3>
+
+                    <p>
+                        Completed Software Engineering training
+                        through the Power Learn Project with a
+                        focus on modern full-stack development
+                        and the MERN stack.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-card">
+
+                    <i class="fas fa-award"></i>
+
+                    <h3>
+                        ALX Career Essentials
+                    </h3>
+
+                    <p>
+                        Completed the ALX Career Essentials program,
+                        strengthening professional development,
+                        communication, workplace readiness,
+                        and career skills.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects" class="projects">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Projects</h2>
+
+                <p>
+                    Some of the applications and systems I have built.
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <div class="project-card">
+
+                    <div class="project-image">
+
+                        <i class="fas fa-house-signal"></i>
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Smart Home System
+                        </h3>
+
+                        <p>
+                            IoT-based security system designed
+                            to provide monitoring and alerts.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="project-link"
+                        >
+                            View on GitHub
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="project-image">
+
+                        <i class="fas fa-square-poll-vertical"></i>
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Survey App
+                        </h3>
+
+                        <p>
+                            Full-stack survey application for
+                            collecting and managing survey data.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="project-link"
+                        >
+                            View on GitHub
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="project-image">
+
+                        <i class="fas fa-shirt"></i>
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            FreshFold Laundry System
+                        </h3>
+
+                        <p>
+                            Laundry management system for managing
+                            orders, customers, inventory, payments,
+                            receipts, and reports.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="project-link"
+                        >
+                            View on GitHub
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Contact Me</h2>
+
+                <p>
+                    Have a project, opportunity, or idea?
+                    Send me a message.
+                </p>
+
+            </div>
+
+
+            <div class="contact-container">
+
+                <form
+                    id="contact-form"
+                    class="contact-form"
+                >
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Your message"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        <i class="fas fa-paper-plane"></i>
+                        &nbsp; Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Sydeny Wesonga. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
